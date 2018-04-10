@@ -28,17 +28,17 @@ int GenerateField(SF GameFields[9][9])
         for(j = 0; j <= 8; j++)
         {
             //"." Should be displayed instead of 0
-            if (GameFields[j][i].Number == 0)
-            {
-                printf(" .");
-            }
-            else
-            {
+//            if (GameFields[j][i].Number == 0)
+//            {
+//                printf(" .");
+//            }
+//            else
+//            {
                 //Farbe per Funktion setzen NOT FINISHED YET
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
                 printf(" %i",GameFields[j][i]);
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-            }
+//            }
             //Formating for Layout
             if((j==2)||(j==5))
             {
@@ -55,3 +55,5 @@ int GenerateField(SF GameFields[9][9])
     printf("+-------+-------+-------+\n");
     return 0;
 }
+
+

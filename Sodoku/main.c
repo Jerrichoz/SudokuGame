@@ -53,7 +53,7 @@ int main()
 
 //    printf("%i\n",GetField(Number1,Number2,TestGame));
     GenerateField(testgame);
-
+    cursorloop(testgame);
     printf("Test4");
 
     return 0;
