@@ -9,6 +9,7 @@
 int main()
 {
 
+    printf("Hallo Farbe ist Nr.%i", getColour);
     //textcolor(RED);
     //cprintf("C programming");
 //    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
@@ -18,14 +19,15 @@ int main()
 
 //    int TestGame[9][9];
     struct SodokuField testgame[9][9];
-
     int i = 0;
     int j = 0;
 //    int Number1;
 //    int Number2;
 
-
-    printf("Test1");
+//    changeColour(3);
+//    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+//    printf("Test1");
+//    changeColour(7);
 
     //Füllen des Arrays
     for(i = 0; i < 9; i++)

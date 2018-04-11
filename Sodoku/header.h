@@ -12,6 +12,8 @@ typedef struct SodokuField
     int Editable;
     int Color;
 } SF;
+
+
 /*
 The function SetSodokuField has 2 Integerparameter. These parameters define the X-Coordinate and the Y-Coordinate (0/0 is Top Left and 8/8 is bottom right).
 The third parameter is a 2-dimensional Array of SodokuFields. The Third Parameter is the Value, that the SodokuField on the coordinates X/Y gets.
@@ -28,4 +30,5 @@ The Function displays the matchfield of the Current Game. The Parameter is a 2-d
 int GenerateField(SF GameFields[9][9]);
 int cursorloop(SF GameFields[9][9]);
 
-int changeColour(SF GameFields[9][9], int colour);
+int setColour(int colour);
+int getColour();
