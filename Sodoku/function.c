@@ -35,9 +35,16 @@ int GenerateField(SF GameFields[9][9])
 //            else
 //            {
                 //Farbe per Funktion setzen NOT FINISHED YET
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-                printf(" %i",GameFields[j][i]);
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+
+                if(1 == 1)
+                {
+
+                    GameFields[j][i].Color = 2;
+
+                    printf(" %i",GameFields[j][i]);
+
+                    GameFields[j][i].Color = 7;
+                }
 //            }
             //Formating for Layout
             if((j==2)||(j==5))
