@@ -32,3 +32,9 @@ int cursorloop(SF GameFields[9][9]);
 
 int setColour(int colour);
 int getColour();
+
+int SetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9],int Color);
+
+int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
+
+int princoloredNR(int number, int color);

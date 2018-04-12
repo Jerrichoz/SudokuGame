@@ -1,6 +1,9 @@
 #include <windows.h>
 #include "header.h"
 
+//Border-Constant
+#define BORDER printf("+-------+-------+-------+\n")
+
 int SetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9],int Number)
 {
     (GameFields[xCoordinate][yCoordinate]).Number = Number;
@@ -17,7 +20,7 @@ int GenerateField(SF GameFields[9][9])
     int i = 0;
     int j = 0;
     //Top border of the Grid
-    printf("+-------+-------+-------+\n");
+    BORDER;
     //2 Loops, for generating the Field based of the Array GameFields.
 
     //Loop for the columns
@@ -34,17 +37,9 @@ int GenerateField(SF GameFields[9][9])
 //            }
 //            else
 //            {
-                //Farbe per Funktion setzen NOT FINISHED YET
+                //Farbe per Funktion setzen
+                princoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
 
-                if(1 == 1)
-                {
-
-                    GameFields[j][i].Color = 2;
-
-                    printf(" %i",GameFields[j][i]);
-
-                    GameFields[j][i].Color = 7;
-                }
 //            }
             //Formating for Layout
             if((j==2)||(j==5))
@@ -52,14 +47,15 @@ int GenerateField(SF GameFields[9][9])
                 printf(" |");
             }
         }
+        //2 Central Borders
         printf(" |\n");
         if((i==2)||(i==5))
         {
-            //
-            printf("+-------+-------+-------+\n");
+            BORDER;
         }
     }
-    printf("+-------+-------+-------+\n");
+    //Lower Border
+    BORDER;
     return 0;
 }
 

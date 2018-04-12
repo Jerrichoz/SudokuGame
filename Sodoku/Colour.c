@@ -24,7 +24,9 @@ The different colour codes are
 15  WHITE
 */
 
+//Source https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
 
+//Gets and Sets the color
 int setColour(int colour)
 {
 
@@ -32,14 +34,38 @@ int setColour(int colour)
 
 return 0;
 }
+
 int getColour()
 {
-    CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
 
-    return GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbiInfo);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
 
+    if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+    {
+        return csbi.wAttributes;
+    }
+    return 0;
 
-    //GetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE));
+}
 
+// Gets and Set the color-attribute of the array
+int SetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9],int Color)
+{
+    (GameFields[xCoordinate][yCoordinate]).Color = Color;
+    return 0;
+}
+
+int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9])
+{
+    return GameFields[xCoordinate][yCoordinate].Color;
+}
+
+//Prints the number in the colornumber, which is given through the parameters. The configured color will still be set afterwards.
+int princoloredNR (int number, int color)
+{
+    int tempcolor = getColour();
+    setColour(color);
+    printf(" %i", number);
+    setColour(tempcolor);
 }
 

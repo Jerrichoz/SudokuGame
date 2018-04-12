@@ -4,17 +4,11 @@
 #include "header.h"
 #include <windows.h>
 
-//SetConsoleTextAttribute(GetStdHandle(STB_OUTPUT_HANDLE), 1);
-//SetConsoleTextAttribute(GetStdHandle(STB_OUTPUT_HANDLE), 1);
 int main()
 {
 
-    printf("Hallo Farbe ist Nr.%i", getColour);
-    //textcolor(RED);
-    //cprintf("C programming");
-//    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-//    printf("hallo");
-//    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    printf("Hallo Farbe ist Nr.%i", getColour());
+
     //Testarray erstellen
 
 //    int TestGame[9][9];
@@ -35,10 +29,13 @@ int main()
         for(j = 0; j < 9; j++)
         {
             SetSodokuField(i,j,testgame,0);
+            SetSodokuFieldColor(i,j, testgame, 10);
         }
     }
     printf("Test2");
     SetSodokuField(2,2,testgame,8);
+    SetSodokuFieldColor(2,2, testgame, 4);
+    printf("Farbe vom Feld: %i", GetSodokuFieldColor(2,2, testgame));
 //    SetField(6,0,TestGame,2);
 //    SetField(1,1,TestGame,1);
 //    SetField(3,1,TestGame,3);
