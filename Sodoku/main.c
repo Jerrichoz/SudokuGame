@@ -55,6 +55,7 @@ int main()
 //    scanf("%i", &Number2);
 
 //    printf("%i\n",GetField(Number1,Number2,TestGame));
+    LoadMatchfieldFromFile(testgame,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
     GenerateField(testgame);
     cursorloop(testgame);
     printf("Test4");

@@ -29,6 +29,10 @@ The Function displays the matchfield of the Current Game. The Parameter is a 2-d
 */
 int GenerateField(SF GameFields[9][9]);
 int cursorloop(SF GameFields[9][9]);
+/*
+This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField. The second Parameter is a the Path for the File, which should be read out.
+*/
+int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
 
 int setColour(int colour);
 int getColour();

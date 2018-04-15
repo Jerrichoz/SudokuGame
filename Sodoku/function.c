@@ -1,6 +1,6 @@
 #include <windows.h>
 #include "header.h"
-
+#include <stdio.h>
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
 
@@ -58,5 +58,63 @@ int GenerateField(SF GameFields[9][9])
     BORDER;
     return 0;
 }
+int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
+{
+    int i,j,k;
+    //Temp is needed for reading the File. Each Char of the File is read separately
+    char temp;
 
+    //Source: http://www.c-howto.de/tutorial/dateiverarbeitung/oeffnen-schliessen/
+    FILE *matchfield;
+
+    //open File
+    matchfield = fopen(Path,"r");
+    //Check if File was found
+    if (matchfield == NULL)
+    {
+        printf("Datei konnte nicht gefunden werden.\n");
+    }
+    else
+    {
+        //If File was found:
+        j = 0;
+        k = 0;
+        printf("Die Datei konnte gefunden werden.\n");
+        //reading of each Char
+        while((temp = fgetc(matchfield))!=EOF)
+
+        {
+            //Saving the numerical sequenz into the array
+            //Char '1' - 48 equals Integer 1. Same for the other Numbers form 0 to 9.
+            //Block for non-editable Fields (0 to 9)
+            NewMatchField[j][k].Number = temp-48;
+            if (((temp - 48) >= 1) && ((temp - 48) <= 9))
+            {
+                NewMatchField[j][k].Color = 15;
+                NewMatchField[j][k].Editable = 0;
+            }
+            //Block for editable Fields
+            else
+            {
+                NewMatchField[j][k].Color = 10;
+                NewMatchField[j][k].Editable = 1;
+            }
+            //Counting Variable
+            if((j == 8) &&(k == 8))
+            {
+                //output if File was correct
+                return 0;
+            }
+            else if(j == 8)
+            {
+                k++;
+                j = -1;
+            }
+            j++;
+        }
+        //Error output: File wasn't coorrect
+        return 1;
+
+    }
+}
 
