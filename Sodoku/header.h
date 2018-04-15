@@ -38,3 +38,7 @@ int SetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9],in
 int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
 
 int princoloredNR(int number, int color);
+
+int SetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9],int editable);
+
+int GetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9]);

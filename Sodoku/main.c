@@ -30,13 +30,17 @@ int main()
         {
             SetSodokuField(i,j,testgame,0);
             SetSodokuFieldColor(i,j, testgame, 10);
+            SetSodokuFieldEditability(i,j, testgame, 1);
         }
     }
     printf("Test2");
     SetSodokuField(2,2,testgame,8);
-    SetSodokuFieldColor(2,2, testgame, 4);
+    SetSodokuFieldColor(2,2, testgame, 15);
+    SetSodokuFieldEditability(2,2, testgame, 0);
     printf("Farbe vom Feld: %i", GetSodokuFieldColor(2,2, testgame));
-//    SetField(6,0,TestGame,2);
+    SetSodokuField(6,0,testgame,2);
+    SetSodokuFieldColor(6,0, testgame, 15);
+    SetSodokuFieldEditability(6,0, testgame, 0);
 //    SetField(1,1,TestGame,1);
 //    SetField(3,1,TestGame,3);
 //    SetField(5,1,TestGame,7);
