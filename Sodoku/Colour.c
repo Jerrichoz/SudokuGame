@@ -67,5 +67,7 @@ int princoloredNR (int number, int color)
     setColour(color);
     printf(" %i", number);
     setColour(tempcolor);
+
+    return 0;
 }
 

@@ -11,6 +11,7 @@ typedef struct SodokuField
     int Number;
     int Editable;
     int Color;
+    int Selected;
 } SF;
 
 
@@ -46,3 +47,5 @@ int princoloredNR(int number, int color);
 int SetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9],int editable);
 
 int GetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
+
+int movearrow(int *x,int *y,int direction);

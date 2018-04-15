@@ -101,3 +101,27 @@
 	"header.h"
 	<stdio.h>
 
+1523825885 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523829322 c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\header.h
+
+1523830123 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523792988 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523792988 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
