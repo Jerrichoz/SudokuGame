@@ -41,6 +41,8 @@
                 {
                     arrayy = 8;
                 }
+                GameFields[oldarrayx][oldarrayy].Color = previousnumbercolor;
+                previousnumbercolor = GameFields[arrayx][arrayy].Color;
                 break;
 
                 //Downarrow
@@ -52,6 +54,8 @@
                 {
                     arrayy = 0;
                 }
+                GameFields[oldarrayx][oldarrayy].Color = previousnumbercolor;
+                previousnumbercolor = GameFields[arrayx][arrayy].Color;
                 break;
 
                 //Leftarrow
@@ -63,6 +67,8 @@
                 {
                     arrayx = 8;
                 }
+                GameFields[oldarrayx][oldarrayy].Color = previousnumbercolor;
+                previousnumbercolor = GameFields[arrayx][arrayy].Color;
                 break;
 
                 //Rightarrow
@@ -74,6 +80,8 @@
                 {
                     arrayx = 0;
                 }
+                GameFields[oldarrayx][oldarrayy].Color = previousnumbercolor;
+                previousnumbercolor = GameFields[arrayx][arrayy].Color;
                 break;
             }
                 //temp
@@ -86,10 +94,10 @@
 
                 //Restoring the old colorvalue of the previos number
                 printf("Gamefield Old X=%i und Y=%i und Colorvalue=%i\n", oldarrayx, oldarrayy, GameFields[oldarrayx][oldarrayy].Color);
-                GameFields[oldarrayx][oldarrayy].Color = previousnumbercolor;
+
 
                 //Saving the colorvalue of the number, before changing it
-                previousnumbercolor = GameFields[arrayx][arrayy].Color;
+
 
                 //The cursor is marked as RED and on a not-editable number it is YELLOW
                 if(GameFields[arrayx][arrayy].Editable == 1)
