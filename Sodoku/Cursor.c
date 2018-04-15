@@ -1,6 +1,11 @@
 #include <windows.h>
 #include "header.h"
- int cursorloop(){
+#include <stdio.h>
+ int cursorloop(SF GameFields[9][9]){
+
+    //Arraycoordinates to navigate
+    int arrayx = 0;
+    int arrayy = 0;
 
     int boolexit = 0;
     while(boolexit != 1)
@@ -15,22 +20,30 @@
             {
                 //Uparrow
                 case(72):
-                //printf("Uparrow\n");
-
+                arrayy -= 1;
                 break;
 
                 //Downarrow
-                case(80): printf("Downarrow\n");break;
+                case(80):
+                arrayy += 1;
+                break;
 
                 //Leftarrow
-                case(75): printf("Leftarrow\n");break;
+                case(75):
+                arrayx -= 1;
+                break;
 
                 //Rightarrow
                 case(77):
-
-                    break;
-
+                arrayx += 1;
+                break;
             }
+                //Marking the place where the cursor
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+                GameFields[arrayy][arrayx].Number = GameFields[arrayy][arrayx].Number;
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+                system("cls");
+                GenerateField(GameFields);
         }
     }
  }

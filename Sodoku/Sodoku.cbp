@@ -31,6 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Colour.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Cursormovement.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="function.c">
 			<Option compilerVar="CC" />
 		</Unit>
