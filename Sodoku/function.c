@@ -37,8 +37,26 @@ int GenerateField(SF GameFields[9][9])
 //            }
 //            else
 //            {
-                //Farbe per Funktion setzen
-                princoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
+            //Farbe per Funktion setzen
+            //The cursor is marked as RED and YELLOW on a not-editable number it is
+            //the other editable numbers are marked as GREEN and not editable as WHITE
+            if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 1)
+            {
+                GameFields[j][i].Color = 4;
+            }
+            else if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 0)
+            {
+                GameFields[j][i].Color = 14;
+            }
+            else if(GameFields[j][i].Editable == 0)
+            {
+                GameFields[j][i].Color = 15;
+            }
+            else
+            {
+                GameFields[j][i].Color = 10;
+            }
+            printcoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
 
 //            }
             //Formating for Layout
@@ -56,11 +74,15 @@ int GenerateField(SF GameFields[9][9])
     }
     //Lower Border
     BORDER;
+
+    //Print Instructions
+    printInstructions(1);
+
     return 0;
 }
 int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
 {
-    int i,j,k;
+    int j,k;
     //Temp is needed for reading the File. Each Char of the File is read separately
     char temp;
 
@@ -112,9 +134,30 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
             }
             j++;
         }
-        //Error output: File wasn't coorrect
-        return 1;
+
 
     }
+    //Error output: File wasn't coorrect
+    return 1;
+}
+
+int printInstructions(int menuorgame)
+{
+    //Print Game Instructions
+    if(menuorgame == 1)
+    {
+        printf("\n\n\n\n");
+        printf("KEYBINDINGS\n");
+        printf("-------------------------------------------------------------\n");
+        printf("Moving Keys:\n");
+        printf("UPARROW for UP, DOWNARROW for DOWN, LEFTARROW for LEFT and RIGHTARROW for RIGHT\n");
+        printf("NUMBERS:\n");
+        printf("0-9 are the only viable Options for a number in this Sudoku!\n");
+    }
+    else
+    {
+
+    }
+    return 0;
 }
 

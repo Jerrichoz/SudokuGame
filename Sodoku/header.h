@@ -42,10 +42,15 @@ int SetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9],in
 
 int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
 
-int princoloredNR(int number, int color);
+int printcoloredNR(int number, int color);
 
 int SetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9],int editable);
 
 int GetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
 
 int movearrow(int *x,int *y,int direction);
+
+//The parameter decides which instructions should be printed; GAME = 1 and  MENU = 2
+int printInstructions(int menuorgame);
+
+int setNumber(SF GameFields[9][9],int number, int x, int y);

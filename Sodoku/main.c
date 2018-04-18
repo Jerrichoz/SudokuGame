@@ -31,13 +31,22 @@ int main()
             SetSodokuField(i,j,testgame,0);
             SetSodokuFieldColor(i,j, testgame, 10);
             SetSodokuFieldEditability(i,j, testgame, 1);
+            if(i == 4 && j == 4)
+            {
+                testgame[i][j].Selected = 1;
+            }
+            else
+            {
+                testgame[i][j].Selected = 0;
+            }
+
         }
     }
-    printf("Test2");
+
     SetSodokuField(2,2,testgame,8);
     SetSodokuFieldColor(2,2, testgame, 15);
     SetSodokuFieldEditability(2,2, testgame, 0);
-    printf("Farbe vom Feld: %i", GetSodokuFieldColor(2,2, testgame));
+
     SetSodokuField(6,0,testgame,2);
     SetSodokuFieldColor(6,0, testgame, 15);
     SetSodokuFieldEditability(6,0, testgame, 0);

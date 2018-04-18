@@ -61,7 +61,7 @@ int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9])
 }
 
 //Prints the number in the colornumber, which is given through the parameters. The configured color will still be set afterwards.
-int princoloredNR (int number, int color)
+int printcoloredNR (int number, int color)
 {
     int tempcolor = getColour();
     setColour(color);

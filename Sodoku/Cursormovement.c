@@ -9,28 +9,40 @@ int cursorloop(SF GameFields[9][9])
     //the current position
     int arrayx = 4;
     int arrayy = 4;
+    GameFields[arrayx][arrayy].Selected = 1;
 
-    //the last position
+//    the last position
     int oldarrayx = 4;
     int oldarrayy = 4;
 
+//            //DELETE testing for selected
+//        int i,j =0;
+//        for(i = 0; i < 9; i++)
+//        {
+//            for(j = 0; j < 9; j++)
+//            {
+//                if(GameFields[i][j].Selected == 1)
+//                {
+//                    printf("Position x:%i\nPostiony:%i\n", i, j);
+//                }
+//            }
+//        }
 
 
-    //Colorvariables tempcolor for mainsettings and previousnumbercolor for the color property of the struct array
-    int tempcolor;
-    int previousnumbercolor = GameFields[arrayx][arrayy].Color;
+    //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
+    //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
 
     //Loopexitvariable
     int boolexit = 0;
-
     while(boolexit != 1)
     {
-        if(kbhit()) // Nur wenn auch eine Taste gedrückt ist
+        // Nur wenn auch eine Taste gedrückt ist
+        if(kbhit())
         {
+            //Saving the current position
             oldarrayx = arrayx;
             oldarrayy = arrayy;
-            //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
-            //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
+
             // Muss auf keine Eingabe warten, Taste ist bereits gedrückt
             char c = getch();
             switch(c)
@@ -41,65 +53,54 @@ int cursorloop(SF GameFields[9][9])
             case(75):
             case(77):
                 movearrow(&arrayx, &arrayy, c);
-                //Restoring the old colorvalue of the previous number
-                GameFields[oldarrayx][oldarrayy].Color = previousnumbercolor;
-                //Saving the colorvalue of the number, before changing it
-                previousnumbercolor = GameFields[arrayx][arrayy].Color;
+                GameFields[oldarrayx][oldarrayy].Selected = 0;
+                break;
+            //Numbers
+            case(48):
+            case(49):
+            case(50):
+            case(51):
+            case(52):
+            case(53):
+            case(54):
+            case(55):
+            case(56):
+            case(57):
+                setNumber(GameFields, c, arrayx, arrayy);
                 break;
             }
 
-            //temp
-            int testedit = GameFields[arrayx][arrayy].Editable;
-
-            ////Marking the number of the cursorposition in Red(4)
-
-            //Saving old overallcolor
-            tempcolor = getColour();
-
-
-            printf("Gamefield Old X=%i und Y=%i und Colorvalue=%i\n", oldarrayx, oldarrayy, GameFields[oldarrayx][oldarrayy].Color);
-
-
-
-
-
-            //The cursor is marked as RED and on a not-editable number it is YELLOW
-            if(GameFields[arrayx][arrayy].Editable == 1)
-            {
-                GameFields[arrayx][arrayy].Color = 4;
-            }
-            else
-            {
-                testedit = 0;
-                GameFields[arrayx][arrayy].Color = 14;
-            }
-            //Setting the old overallcolor back; clearing the screen and regenerating the field
-            setColour(tempcolor);
+            //Set as Selected
+            GameFields[arrayx][arrayy].Selected = 1;
             system("cls");
             GenerateField(GameFields);
 
             //DELETE Testing
-            printf("Gamefield Old X=%i und Y=%i und Colorvalue=%i\n", oldarrayx, oldarrayy,GameFields[oldarrayx][oldarrayy].Color);
-            printf("Gamefield New X=%i und Y=%i und Colorvalue=%i\n", arrayx, arrayy, GameFields[arrayx][arrayy].Color);
-            printf("This field is %i editable", testedit);
-            printf("\nPreviousnumbercolor: %i", previousnumbercolor);
+//            printf("Gamefield Old X=%i und Y=%i und Colorvalue=%i\n", oldarrayx, oldarrayy,GameFields[oldarrayx][oldarrayy].Color);
+//            printf("Gamefield New X=%i und Y=%i und Colorvalue=%i\n", arrayx, arrayy, GameFields[arrayx][arrayy].Color);
         }
+
+
     }
     return 0;
 }
 
-// Gets and Set the editability of the arraynumber
+// //Gets and Set the editability of the arraynumber
+// Setter
 int SetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9],int editable)
 {
     (GameFields[xCoordinate][yCoordinate]).Editable = editable;
     return 0;
 }
 
+// Getter
 int GetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9])
 {
     return (GameFields[xCoordinate][yCoordinate]).Editable;
 }
 
+
+// Moves in a two-dimensional environement accordingly to the third parameter
 int movearrow(int *x, int *y, int direction)
 {
     switch(direction)
@@ -139,4 +140,61 @@ int movearrow(int *x, int *y, int direction)
         break;
     }
     return 0;
+}
+
+int setNumber(SF GameFields[9][9],int number, int x, int y)
+{
+    if(GameFields[x][y].Editable == 1)
+    {
+
+
+        switch(number)
+        {
+        // Number: 0
+        case(48):
+            GameFields[x][y].Number = 0;
+            break;
+        // Number: 1
+        case(49):
+            GameFields[x][y].Number = 1;
+            break;
+        // Number: 2
+        case(50):
+            GameFields[x][y].Number = 2;
+            break;
+        // Number: 3
+        case(51):
+            GameFields[x][y].Number = 3;
+            break;
+        // Number: 4
+        case(52):
+            GameFields[x][y].Number = 4;
+            break;
+        // Number: 5
+        case(53):
+            GameFields[x][y].Number = 5;
+            break;
+        // Number: 6
+        case(54):
+            GameFields[x][y].Number = 6;
+            break;
+        // Number: 7
+        case(55):
+            GameFields[x][y].Number = 7;
+            break;
+        // Number: 8
+        case(56):
+            GameFields[x][y].Number = 8;
+            break;
+        // Number: 9
+        case(57):
+            GameFields[x][y].Number = 9;
+            break;
+        }
+    }
+    else
+    {
+        return 1;
+    }
+    return 1;
 }
