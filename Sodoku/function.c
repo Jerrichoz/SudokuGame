@@ -149,10 +149,12 @@ int printInstructions(int menuorgame)
         printf("\n\n\n\n");
         printf("KEYBINDINGS\n");
         printf("-------------------------------------------------------------\n");
-        printf("Moving Keys:\n");
-        printf("UPARROW for UP, DOWNARROW for DOWN, LEFTARROW for LEFT and RIGHTARROW for RIGHT\n");
+        printf("SELECTION:\n");
+        printf("UPARROW for UP, DOWNARROW for DOWN, LEFTARROW for LEFT and RIGHTARROW for RIGHT\n\n");
         printf("NUMBERS:\n");
-        printf("0-9 are the only viable Options for a number in this Sudoku!\n");
+        printf("0-9 are the only viable Options for a number in this Sudoku!\n\n");
+        printf("OPTIONS:\n");
+        printf("SAVING with F5 and go back");
     }
     else
     {

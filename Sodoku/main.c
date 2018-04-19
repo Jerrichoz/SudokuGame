@@ -66,6 +66,7 @@ int main()
 //    printf("%i\n",GetField(Number1,Number2,TestGame));
     LoadMatchfieldFromFile(testgame,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
     GenerateField(testgame);
+    mainMenuGraphic();
     cursorloop(testgame);
     printf("Test4");
 

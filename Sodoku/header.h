@@ -54,3 +54,5 @@ int movearrow(int *x,int *y,int direction);
 int printInstructions(int menuorgame);
 
 int setNumber(SF GameFields[9][9],int number, int x, int y);
+
+int genereateMenu();
