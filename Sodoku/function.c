@@ -42,19 +42,19 @@ int GenerateField(SF GameFields[9][9])
             //the other editable numbers are marked as GREEN and not editable as WHITE
             if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 1)
             {
-                GameFields[j][i].Color = 4;
+                GameFields[j][i].Color = RED;
             }
             else if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 0)
             {
-                GameFields[j][i].Color = 14;
+                GameFields[j][i].Color = YELLOW;
             }
             else if(GameFields[j][i].Editable == 0)
             {
-                GameFields[j][i].Color = 15;
+                GameFields[j][i].Color = WHITE;
             }
             else
             {
-                GameFields[j][i].Color = 10;
+                GameFields[j][i].Color = LIGHTGREEN;
             }
             printcoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
 
@@ -106,19 +106,19 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
         while((temp = fgetc(matchfield))!=EOF)
 
         {
-            //Saving the numerical sequenz into the array
+            //Saving the numerical sequence into the array
             //Char '1' - 48 equals Integer 1. Same for the other Numbers form 0 to 9.
             //Block for non-editable Fields (0 to 9)
             NewMatchField[j][k].Number = temp-48;
             if (((temp - 48) >= 1) && ((temp - 48) <= 9))
             {
-                NewMatchField[j][k].Color = 15;
+                NewMatchField[j][k].Color = WHITE;
                 NewMatchField[j][k].Editable = 0;
             }
             //Block for editable Fields
             else
             {
-                NewMatchField[j][k].Color = 10;
+                NewMatchField[j][k].Color = LIGHTGREEN;
                 NewMatchField[j][k].Editable = 1;
             }
             //Counting Variable
@@ -138,7 +138,7 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
 
     }
     //Error output: File wasn't coorrect
-    return 1;
+    return 0;
 }
 
 int printInstructions(int menuorgame)

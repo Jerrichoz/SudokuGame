@@ -139,7 +139,7 @@ int movearrow(int *x, int *y, int direction)
         }
         break;
     }
-    return 0;
+    return 1;
 }
 
 int setNumber(SF GameFields[9][9],int number, int x, int y)

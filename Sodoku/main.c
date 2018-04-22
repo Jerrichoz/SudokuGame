@@ -29,7 +29,7 @@ int main()
         for(j = 0; j < 9; j++)
         {
             SetSodokuField(i,j,testgame,0);
-            SetSodokuFieldColor(i,j, testgame, 10);
+            SetSodokuFieldColor(i,j, testgame, LIGHTGREEN);
             SetSodokuFieldEditability(i,j, testgame, 1);
             if(i == 4 && j == 4)
             {
@@ -44,11 +44,11 @@ int main()
     }
 
     SetSodokuField(2,2,testgame,8);
-    SetSodokuFieldColor(2,2, testgame, 15);
+    SetSodokuFieldColor(2,2, testgame, WHITE);
     SetSodokuFieldEditability(2,2, testgame, 0);
 
     SetSodokuField(6,0,testgame,2);
-    SetSodokuFieldColor(6,0, testgame, 15);
+    SetSodokuFieldColor(6,0, testgame, WHITE);
     SetSodokuFieldEditability(6,0, testgame, 0);
 //    SetField(1,1,TestGame,1);
 //    SetField(3,1,TestGame,3);
@@ -66,7 +66,7 @@ int main()
 //    printf("%i\n",GetField(Number1,Number2,TestGame));
     LoadMatchfieldFromFile(testgame,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
     GenerateField(testgame);
-    mainMenuGraphic();
+    menuLoop();
     cursorloop(testgame);
     printf("Test4");
 

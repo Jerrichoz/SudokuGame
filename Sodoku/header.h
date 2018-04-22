@@ -6,6 +6,9 @@ A SodokuField has a Number and several properties:
 If The Number is 0, then the Field is treated as Empty
 */
 //The struct is defined as SF
+
+
+
 typedef struct SodokuField
 {
     int Number;
@@ -55,4 +58,36 @@ int printInstructions(int menuorgame);
 
 int setNumber(SF GameFields[9][9],int number, int x, int y);
 
-int genereateMenu();
+// // generates Menu
+int generateMenu(int position);
+int movemenuPosition(int *x, int direction);
+int menuLoop();
+
+
+//Menu Graphic Functions
+
+int menuGraphic();
+int startGameGraphic(int selected);
+int startRandomGameGraphic(int selected);
+int loadGameGraphic(int selected);
+int exitGraphic(int selected);
+
+//Color Constants
+#define BLUE 1
+#define GREEN 2
+#define CYAN 3
+#define RED 4
+#define MAGENTA 5
+#define BROWN 6
+#define LIGHTGRAY 7
+#define DARKGRAY 8
+#define LIGHTBLUE 9
+#define LIGHTGREEN 10
+#define LIGHTCYAN 11
+#define LIGHTRED 12
+#define LIGHTMAGENTA 13
+#define YELLOW 14
+#define WHITE 15
+
+
+
