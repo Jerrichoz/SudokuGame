@@ -72,6 +72,10 @@ int startRandomGameGraphic(int selected);
 int loadGameGraphic(int selected);
 int exitGraphic(int selected);
 
+//Gameloop
+int gameloop(int loopvar, SF GameFields[9][9]);
+
+
 //Color Constants
 #define BLUE 1
 #define GREEN 2

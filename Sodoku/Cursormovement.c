@@ -69,7 +69,6 @@ int cursorloop(SF GameFields[9][9])
                 setNumber(GameFields, c, arrayx, arrayy);
                 break;
             }
-
             //Set as Selected
             GameFields[arrayx][arrayy].Selected = 1;
             system("cls");

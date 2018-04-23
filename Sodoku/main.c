@@ -7,7 +7,8 @@
 int main()
 {
 
-    printf("Hallo Farbe ist Nr.%i", getColour());
+    //Loopvariable starting in MainMenu
+    int loopvar = 1;
 
     //Testarray erstellen
 
@@ -65,10 +66,32 @@ int main()
 
 //    printf("%i\n",GetField(Number1,Number2,TestGame));
     LoadMatchfieldFromFile(testgame,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
-    GenerateField(testgame);
-    menuLoop();
-    cursorloop(testgame);
-    printf("Test4");
 
+    //Gameloops
+    //GenerateField(testgame);
+    gameloop(loopvar, testgame);
+    //cursorloop(testgame);
+    printf("Spiel ist beendet!");
+
+    return 0;
+}
+
+int gameloop(int loopvar, SF GameFields[9][9])
+{
+    int boolexit = 0;
+    while (boolexit != 1)
+    {
+        switch(loopvar)
+        {
+        case(1):
+            loopvar = menuLoop();
+            break;
+        case(2):
+            loopvar = cursorloop(GameFields);
+            break;
+        case(3):
+            return 0;
+        }
+    }
     return 0;
 }

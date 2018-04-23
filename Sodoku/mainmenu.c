@@ -25,6 +25,25 @@ int menuLoop()
             case(77):
                 movemenuPosition(&menuPosition, c);
                 break;
+            //Enter
+            case(13):
+                switch(menuPosition)
+                {
+                    //Start Game
+                case(0):
+                    break;
+                    //Start random Game
+                case(1):
+                    return 2;
+                    break;
+                    //Load Game
+                case(2):
+                    break;
+                    //Exit Game
+                case(3):
+                    return 3;
+                    break;
+                }
             }
             generateMenu(menuPosition);
 
