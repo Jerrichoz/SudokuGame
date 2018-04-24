@@ -15,9 +15,10 @@ typedef struct SodokuField
     int Editable;
     int Color;
     int Selected;
+    int Block;
 } SF;
 
-
+int SetBlockForField(int xCoordinate, int yCoordinate);
 /*
 The function SetSodokuField has 2 Integerparameter. These parameters define the X-Coordinate and the Y-Coordinate (0/0 is Top Left and 8/8 is bottom right).
 The third parameter is a 2-dimensional Array of SodokuFields. The Third Parameter is the Value, that the SodokuField on the coordinates X/Y gets.

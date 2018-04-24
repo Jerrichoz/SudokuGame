@@ -111,19 +111,19 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
         while((temp = fgetc(matchfield))!=EOF)
 
         {
-            //Saving the numerical sequence into the array
+            //Saving the numerical sequenz into the array
             //Char '1' - 48 equals Integer 1. Same for the other Numbers form 0 to 9.
-            //Block for non-editable Fields (0 to 9)
             NewMatchField[j][k].Number = temp-48;
+            //Setting the property Block
+            NewMatchField[j][k].Block = SetBlockForField(j,k);
+            //Block for non-editable Fields (0 to 9)
             if (((temp - 48) >= 1) && ((temp - 48) <= 9))
             {
-                NewMatchField[j][k].Color = WHITE;
                 NewMatchField[j][k].Editable = 0;
             }
             //Block for editable Fields
             else
             {
-                NewMatchField[j][k].Color = LIGHTGREEN;
                 NewMatchField[j][k].Editable = 1;
             }
             //Counting Variable
@@ -143,7 +143,7 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
 
     }
     //Error output: File wasn't coorrect
-    return 0;
+    return 1;
 }
 
 int printInstructions(int menuorgame)
@@ -198,6 +198,60 @@ int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMembe
     }
     return 0;
 
+}
+
+
+int SetBlockForField(int xCoordinate, int yCoordinate)
+{
+    //First three columns (zero to three)
+    if((xCoordinate >= 0) && (xCoordinate <= 2))
+    {
+        if((yCoordinate >= 0) && (yCoordinate <= 2))
+        {
+            return 1;
+        }
+        if((yCoordinate >= 3) && (yCoordinate <= 5))
+        {
+            return 2;
+        }
+        if((yCoordinate >= 6) && (yCoordinate <= 8))
+        {
+            return 3;
+        }
+    }
+    //columns three to five
+    if((xCoordinate >= 3) && (xCoordinate <= 5))
+    {
+        if((yCoordinate >= 0) && (yCoordinate <= 2))
+        {
+            return 4;
+        }
+        if((yCoordinate >=3) && (yCoordinate <= 5))
+        {
+            return 5;
+        }
+        if((yCoordinate >= 6) && (yCoordinate <= 8))
+        {
+            return 6;
+        }
+    }
+    //columns six to eight
+    if((xCoordinate >= 6) && (xCoordinate <= 8))
+    {
+        if((yCoordinate >= 0) && (yCoordinate <= 2))
+        {
+            return 7;
+        }
+        if((yCoordinate >= 3) && (yCoordinate <= 5))
+        {
+            return 8;
+        }
+        if((yCoordinate >= 6) && (yCoordinate <= 8))
+        {
+            return 9;
+        }
+    }
+    return 0;
 }
 
 
