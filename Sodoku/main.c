@@ -94,7 +94,8 @@ int gameloop(int loopvar, SF GameFields[9][9])
             loopvar = menuLoop();
             break;
         case(2):
-            loopvar = cursorloop(GameFields);
+            //loopvar = cursorloop(GameFields);
+            loopvar = randomGameLoop();
             break;
         case(3):
             loopvar = ChooserLoop(path);
@@ -102,6 +103,9 @@ int gameloop(int loopvar, SF GameFields[9][9])
             break;
         case(4):
             return 0;
+            break;
+        case(5):
+            break;
         }
     }
     return 0;

@@ -92,7 +92,7 @@ int menuGraphic()
 {
     int tempcolor;
     tempcolor = getColour();
-    setColour(LIGHTMAGENTA);
+    setColour(GREEN);
     printf("\n");
     printf("\t\t\t\t\t\tMM    MM                       \n");
     printf("\t\t\t\t\t\tMMM  MMM   eee  nn nnn  uu   uu\n");

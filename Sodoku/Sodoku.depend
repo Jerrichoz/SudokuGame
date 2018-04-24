@@ -207,3 +207,55 @@
 	"header.h"
 	<stdio.h>
 
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524600944 c:\users\maks\desktop\programmier-projekt\sodoku\header.h
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1524601020 source:c:\users\maks\desktop\programmier-projekt\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1524599843 source:c:\users\maks\desktop\programmier-projekt\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524601211 source:c:\users\maks\desktop\programmier-projekt\sodoku\randomgamemenu.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+

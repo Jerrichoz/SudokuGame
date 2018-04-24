@@ -153,6 +153,29 @@ int ChooserLoop(char path[]);
 
 
 
+// // randomgamemenu.c -Start
+
+/*
+generates the random game menu loop
+*/
+int randomGameLoop();
+
+/*
+Builds the random game menu
+*/
+int generateRandomGameMenu(int position);
+
+/*
+Random Game Menu Graphics
+*/
+int menuRndGraphic();
+int easyRndGraphic(int selected);
+int mediumRndGraphic(int selected);
+int hardRndGraphic(int selected);
+
+// // randomgamemenu.c -End
+
+
 // // Constants
 // Colors
 #define BLUE 1
