@@ -1,6 +1,7 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
+#include <dirent.h>
 
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
@@ -166,4 +167,37 @@ int printInstructions(int menuorgame)
     }
     return 0;
 }
+
+int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember)
+{
+    //Source: https://www.unixboard.de/threads/verzeichnis-auslesen-und-dateien-nummerieren-in-c.18416/
+    int i;
+    i = 0;
+    //Directory struct - dirHandle??????????
+    DIR *dirHandle;
+    struct dirent * dirEntry;
+
+    dirHandle = opendir("./matchfields");
+    if (dirHandle) {
+       while (0 != (dirEntry = readdir(dirHandle))) {
+            //. and .. should not be displayed
+            if(strcmp(dirEntry->d_name, ".")==0 ||
+               strcmp(dirEntry->d_name, "..")==0)
+               {
+                   continue;
+               }
+            //printf("%d) %s\n", i, dirEntry->d_name);
+            //copy the String in a list of strings
+            strcpy(NameList[i],dirEntry->d_name);
+            i ++;
+       }
+       closedir(dirHandle);
+       //The Number of List Member is the last index+1 (because indices are sstarting at 0)
+
+       *NumberOfListMember = i;
+    }
+    return 0;
+
+}
+
 

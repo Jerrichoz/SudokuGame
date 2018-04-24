@@ -81,10 +81,13 @@ int main()
 int gameloop(int loopvar, SF GameFields[9][9])
 {
     int boolexit = 0;
+    char path[260];
     while (boolexit != 1)
     {
         switch(loopvar)
         {
+        case(0):
+            printf("Error. Unknown loop.");
         case(1):
             loopvar = menuLoop();
             break;
@@ -92,8 +95,13 @@ int gameloop(int loopvar, SF GameFields[9][9])
             loopvar = cursorloop(GameFields);
             break;
         case(3):
+            loopvar = ChooserLoop(path);
+            LoadMatchfieldFromFile(GameFields,path);
+            break;
+        case(4):
             return 0;
         }
     }
     return 0;
 }
+

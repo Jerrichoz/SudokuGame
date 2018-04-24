@@ -22,7 +22,7 @@ int menuLoop()
             //Movement
             case(72):
             case(80):
-                movemenuPosition(&menuPosition, c);
+                movemenuPosition(&menuPosition, c, 3);
                 break;
             //Enter
             case(13):
@@ -30,6 +30,7 @@ int menuLoop()
                 {
                     //Start Game
                 case(0):
+                    return 3;
                     break;
                     //Start random Game
                 case(1):
@@ -40,7 +41,7 @@ int menuLoop()
                     break;
                     //Exit Game
                 case(3):
-                    return 3;
+                    return 4;
                     break;
                 }
             }
@@ -63,7 +64,7 @@ int generateMenu(int position)
     return 0;
 }
 
-int movemenuPosition(int *x, int direction)
+int movemenuPosition(int *x, int direction, int maxMenuLength)
 {
     switch(direction)
     {
@@ -72,13 +73,13 @@ int movemenuPosition(int *x, int direction)
         *x -= 1;
         if(*x == -1)
         {
-            *x = 3;
+            *x = maxMenuLength;
         }
         break;
     //Downarrow
     case(80):
         *x += 1;
-        if(*x == 4)
+        if(*x == maxMenuLength + 1)
         {
             *x = 0;
         }
