@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-int cursorloop(SF GameFields[9][9])
+int cursorloop(SF GameFields[9][9],char GameName[512])
 {
 
     ////Arraycoordinates to navigate
@@ -57,6 +57,9 @@ GenerateField(GameFields);
             case(56):
             case(57):
                 setNumber(GameFields, c, arrayx, arrayy);
+                break;
+            case(115):
+                saveGame(GameFields,GameName);
                 break;
             }
             //Set as Selected

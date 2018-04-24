@@ -177,7 +177,7 @@ int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMembe
     DIR *dirHandle;
     struct dirent * dirEntry;
 
-    dirHandle = opendir("./matchfields");
+    dirHandle = opendir(path);
     if (dirHandle) {
        while (0 != (dirEntry = readdir(dirHandle))) {
             //. and .. should not be displayed

@@ -81,7 +81,8 @@ int main()
 int gameloop(int loopvar, SF GameFields[9][9])
 {
     int boolexit = 0;
-    char path[260];
+    char path[1024] = "./matchfields/";
+    char GameName[512] = "";
     while (boolexit != 1)
     {
         switch(loopvar)
@@ -92,10 +93,11 @@ int gameloop(int loopvar, SF GameFields[9][9])
             loopvar = menuLoop();
             break;
         case(2):
-            loopvar = cursorloop(GameFields);
+            loopvar = cursorloop(GameFields,GameName);
             break;
         case(3):
-            loopvar = ChooserLoop(path);
+            loopvar = ChooserLoop(GameName,path);
+            strcpy(path, strcat(path,GameName));
             LoadMatchfieldFromFile(GameFields,path);
             break;
         case(4):

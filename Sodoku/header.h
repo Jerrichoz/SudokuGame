@@ -33,7 +33,7 @@ int GetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
 The Function displays the matchfield of the Current Game. The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
 */
 int GenerateField(SF GameFields[9][9]);
-int cursorloop(SF GameFields[9][9]);
+int cursorloop(SF GameFields[9][9],char GameName[512]);
 /*
 This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField. The second Parameter is a the Path for the File, which should be read out.
 */
@@ -80,7 +80,7 @@ int exitGraphic(int selected);
 
 //Gameloop
 int gameloop(int loopvar, SF GameFields[9][9]);
-int ChooserLoop(char path[]);
+int ChooserLoop(char MatchName[],char path[]);
 
 //Color Constants
 #define BLUE 1
@@ -103,4 +103,4 @@ int ChooserLoop(char path[]);
 
 int consolewindowsettings();
 
-
+int saveGame(char MatchField[9][9],char GameName[512]);

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <windows.h>
 
-GenerateChooserList(char NameList[100][512], int NumberOfListMember,int ChooserPosition)
+int GenerateChooserList(char NameList[100][512], int NumberOfListMember,int ChooserPosition)
 {
     int i = 0;
     int tempcolor = getColour();
@@ -23,14 +23,13 @@ GenerateChooserList(char NameList[100][512], int NumberOfListMember,int ChooserP
     return 0;
 }
 
-int ChooserLoop(char path[])
+int ChooserLoop(char MatchName[],char path[])
 {
     int ChooserPosition = 0;
     char NameList[100][512];
     int NumberOfListMember;
-    strcpy(path, "./matchfields/");
 
-    GetDirectoryList(NameList,"notworking",&NumberOfListMember);
+    GetDirectoryList(NameList,path,&NumberOfListMember);
     //generateMenu(menuPosition);
 
     GenerateChooserList(NameList,NumberOfListMember,ChooserPosition);
@@ -49,9 +48,7 @@ int ChooserLoop(char path[])
                 break;
             //Enter
             case(13):
-
-
-                strcat(path,NameList[ChooserPosition]);
+                strcpy(MatchName, NameList[ChooserPosition]);
                 return 2;
                 break;
             case(27):
