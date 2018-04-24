@@ -36,14 +36,14 @@
 
 1523357622 c:\users\teilnehmer.pc29\desktop\sodoku\header.h
 
-1524567936 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\function.c
+1524575297 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\function.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 
 1524571333 c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\header.h
 
-1524569227 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\main.c
+1524571333 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -136,17 +136,18 @@
 	"header.h"
 	<stdio.h>
 
-1524568957 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\cursormovement.c
+1524575469 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524572237 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\mainmenu.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 
-1524567936 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\mainmenu.c
-	<windows.h>
-	"header.h"
-	<stdio.h>
-
-1524570661 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\windowsettings.c
+1524571333 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\windowsettings.c
 	<windows.h>
 	"header.h"
 	<stdio.h>

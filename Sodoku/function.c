@@ -1,6 +1,7 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
+
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
 
@@ -17,6 +18,9 @@ int GetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9])
 
 int GenerateField(SF GameFields[9][9])
 {
+    //Clear Screen
+    system("cls");
+
     int i = 0;
     int j = 0;
     //Top border of the Grid
@@ -37,7 +41,7 @@ int GenerateField(SF GameFields[9][9])
 //            }
 //            else
 //            {
-            //Farbe per Funktion setzen
+            //Setting the Color
             //The cursor is marked as RED and YELLOW on a not-editable number it is
             //the other editable numbers are marked as GREEN and not editable as WHITE
             if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 1)
@@ -54,7 +58,7 @@ int GenerateField(SF GameFields[9][9])
             }
             else
             {
-                GameFields[j][i].Color = LIGHTGREEN;
+                GameFields[j][i].Color = CYAN;
             }
             printcoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
 

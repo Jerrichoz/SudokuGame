@@ -1,6 +1,7 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
+#include <conio.h>
 
 
 int menuLoop()
@@ -21,8 +22,6 @@ int menuLoop()
             //Movement
             case(72):
             case(80):
-            case(75):
-            case(77):
                 movemenuPosition(&menuPosition, c);
                 break;
             //Enter

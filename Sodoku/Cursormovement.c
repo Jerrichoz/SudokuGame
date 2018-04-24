@@ -1,6 +1,7 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
+#include <conio.h>
 
 int cursorloop(SF GameFields[9][9])
 {
@@ -15,6 +16,8 @@ int cursorloop(SF GameFields[9][9])
     int oldarrayx = 4;
     int oldarrayy = 4;
 
+// First Generation of Field
+GenerateField(GameFields);
 
     //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
     //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
@@ -58,7 +61,8 @@ int cursorloop(SF GameFields[9][9])
             }
             //Set as Selected
             GameFields[arrayx][arrayy].Selected = 1;
-            system("cls");
+
+            //Generate the field
             GenerateField(GameFields);
 
             //DELETE Testing
