@@ -48,19 +48,7 @@ int getColour()
 
 }
 
-// Gets and Set the color-attribute of the array
-int SetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9],int Color)
-{
-    (GameFields[xCoordinate][yCoordinate]).Color = Color;
-    return 0;
-}
 
-int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9])
-{
-    return GameFields[xCoordinate][yCoordinate].Color;
-}
-
-//Prints the number in the colornumber, which is given through the parameters. The configured color will still be set afterwards.
 int printcoloredNR (int number, int color)
 {
     int tempcolor = getColour();

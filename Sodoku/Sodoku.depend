@@ -162,3 +162,48 @@
 	<stdlib.h>
 	<windows.h>
 
+1524570957 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524572357 c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\header.h
+
+1524571546 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524572357 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1524570957 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1524570957 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1524591473 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524591473 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+

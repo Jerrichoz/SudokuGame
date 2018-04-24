@@ -37,6 +37,9 @@
 		<Unit filename="Cursormovement.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="FileChooser.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="function.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -45,6 +48,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mainmenu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="windowsettings.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

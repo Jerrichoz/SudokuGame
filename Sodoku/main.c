@@ -31,9 +31,9 @@ int main()
     {
         for(j = 0; j < 9; j++)
         {
-            SetSodokuField(i,j,testgame,0);
-            SetSodokuFieldColor(i,j, testgame, LIGHTGREEN);
-            SetSodokuFieldEditability(i,j, testgame, 1);
+            testgame[i][j].Number = 0;
+            testgame[i][j].Color = LIGHTGREEN;
+            testgame[i][j].Editable = 1;
             if(i == 4 && j == 4)
             {
                 testgame[i][j].Selected = 1;
@@ -46,13 +46,15 @@ int main()
         }
     }
 
-    SetSodokuField(2,2,testgame,8);
-    SetSodokuFieldColor(2,2, testgame, WHITE);
-    SetSodokuFieldEditability(2,2, testgame, 0);
+    testgame[2][2].Number = 8;
+    testgame[2][2].Color = WHITE;
+    testgame[2][2].Editable = 0;
 
-    SetSodokuField(6,0,testgame,2);
-    SetSodokuFieldColor(6,0, testgame, WHITE);
-    SetSodokuFieldEditability(6,0, testgame, 0);
+    testgame[6][0].Number = 2;
+    testgame[6][0].Color = WHITE;
+    testgame[6][0].Editable = 0;
+
+
 //    SetField(1,1,TestGame,1);
 //    SetField(3,1,TestGame,3);
 //    SetField(5,1,TestGame,7);

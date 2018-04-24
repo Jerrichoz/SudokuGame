@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <windows.h>
 
-GenerateChooserList(char NameList[100][512], int NumberOfListMember,int ChooserPosition)
+int GenerateChooserList(char NameList[100][512], int NumberOfListMember,int ChooserPosition)
 {
     int i = 0;
     int tempcolor = getColour();
