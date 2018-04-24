@@ -15,19 +15,6 @@ int cursorloop(SF GameFields[9][9])
     int oldarrayx = 4;
     int oldarrayy = 4;
 
-//            //DELETE testing for selected
-//        int i,j =0;
-//        for(i = 0; i < 9; i++)
-//        {
-//            for(j = 0; j < 9; j++)
-//            {
-//                if(GameFields[i][j].Selected == 1)
-//                {
-//                    printf("Position x:%i\nPostiony:%i\n", i, j);
-//                }
-//            }
-//        }
-
 
     //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
     //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions

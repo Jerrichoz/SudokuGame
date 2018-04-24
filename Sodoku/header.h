@@ -93,5 +93,8 @@ int gameloop(int loopvar, SF GameFields[9][9]);
 #define YELLOW 14
 #define WHITE 15
 
+// Sets the appropriate Console Window Settings
+
+int consolewindowsettings();
 
 

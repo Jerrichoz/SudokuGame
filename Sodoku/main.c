@@ -6,6 +6,8 @@
 
 int main()
 {
+    //Load Window Settings
+    consolewindowsettings();
 
     //Loopvariable starting in MainMenu
     int loopvar = 1;
