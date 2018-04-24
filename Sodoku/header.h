@@ -18,7 +18,7 @@ typedef struct SodokuField
     int Block;
 } SF;
 
-int SetBlockForField(int xCoordinate, int yCoordinate);
+
 /*
 The function SetSodokuField has 2 Integerparameter. These parameters define the X-Coordinate and the Y-Coordinate (0/0 is Top Left and 8/8 is bottom right).
 The third parameter is a 2-dimensional Array of SodokuFields. The Third Parameter is the Value, that the SodokuField on the coordinates X/Y gets.
@@ -38,11 +38,6 @@ int cursorloop(SF GameFields[9][9]);
 This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField. The second Parameter is a the Path for the File, which should be read out.
 */
 int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
-
-//This Function looks in the path (parameter path) and writes all the Files in the directory into a List (parameter NameList). In the parameter NumberOfListMember will be written, how many Files are found in the directory.
-
-//weder path noch NomberOfListMember funktionieren
-int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember);
 
 int setColour(int colour);
 int getColour();
@@ -66,7 +61,7 @@ int setNumber(SF GameFields[9][9],int number, int x, int y);
 
 // // generates Menu
 int generateMenu(int position);
-int movemenuPosition(int *x, int direction, int maxMenuLength);
+int movemenuPosition(int *x, int direction);
 int menuLoop();
 
 
@@ -80,7 +75,7 @@ int exitGraphic(int selected);
 
 //Gameloop
 int gameloop(int loopvar, SF GameFields[9][9]);
-int ChooserLoop(char path[]);
+
 
 //Color Constants
 #define BLUE 1
@@ -99,8 +94,5 @@ int ChooserLoop(char path[]);
 #define YELLOW 14
 #define WHITE 15
 
-// Sets the appropriate Console Window Settings
-
-int consolewindowsettings();
-
-
+// Controlalgorithm for checking the GameFieldValues
+int checkFilledGrid(SF GameFields[9][9]);

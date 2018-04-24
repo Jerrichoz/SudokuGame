@@ -1,7 +1,6 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
-#include <conio.h>
 
 
 int menuLoop()
@@ -22,7 +21,9 @@ int menuLoop()
             //Movement
             case(72):
             case(80):
-                movemenuPosition(&menuPosition, c, 3);
+            case(75):
+            case(77):
+                movemenuPosition(&menuPosition, c);
                 break;
             //Enter
             case(13):
@@ -30,7 +31,6 @@ int menuLoop()
                 {
                     //Start Game
                 case(0):
-                    return 3;
                     break;
                     //Start random Game
                 case(1):
@@ -41,7 +41,7 @@ int menuLoop()
                     break;
                     //Exit Game
                 case(3):
-                    return 4;
+                    return 3;
                     break;
                 }
             }
@@ -64,7 +64,7 @@ int generateMenu(int position)
     return 0;
 }
 
-int movemenuPosition(int *x, int direction, int maxMenuLength)
+int movemenuPosition(int *x, int direction)
 {
     switch(direction)
     {
@@ -73,13 +73,13 @@ int movemenuPosition(int *x, int direction, int maxMenuLength)
         *x -= 1;
         if(*x == -1)
         {
-            *x = maxMenuLength;
+            *x = 3;
         }
         break;
     //Downarrow
     case(80):
         *x += 1;
-        if(*x == maxMenuLength + 1)
+        if(*x == 4)
         {
             *x = 0;
         }

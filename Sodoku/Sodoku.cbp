@@ -47,6 +47,9 @@
 		<Unit filename="mainmenu.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="solvesudoku.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -6,25 +6,23 @@
 
 int main()
 {
-    //Load Window Settings
-    consolewindowsettings();
 
     //Loopvariable starting in MainMenu
     int loopvar = 1;
 
     //Testarray erstellen
 
-//    int TestGame[9][9];
+    //int TestGame[9][9];
     struct SodokuField testgame[9][9];
     int i = 0;
     int j = 0;
-//    int Number1;
-//    int Number2;
+    //int Number1;
+    //int Number2;
 
-//    changeColour(3);
-//    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-//    printf("Test1");
-//    changeColour(7);
+    //changeColour(3);
+    //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+    //printf("Test1");
+    //changeColour(7);
 
     //Füllen des Arrays
     for(i = 0; i < 9; i++)
@@ -53,20 +51,20 @@ int main()
     SetSodokuField(6,0,testgame,2);
     SetSodokuFieldColor(6,0, testgame, WHITE);
     SetSodokuFieldEditability(6,0, testgame, 0);
-//    SetField(1,1,TestGame,1);
-//    SetField(3,1,TestGame,3);
-//    SetField(5,1,TestGame,7);
-//    SetField(7,1,TestGame,5);
-//    SetField(0,2,TestGame,5);
-//    SetField(1,2,TestGame,4);
-//    SetField(7,2,TestGame,7);
-//    SetField(8,2,TestGame,6);
+    //SetField(1,1,TestGame,1);
+    //SetField(3,1,TestGame,3);
+    //SetField(5,1,TestGame,7);
+    //SetField(7,1,TestGame,5);
+    //SetField(0,2,TestGame,5);
+    //SetField(1,2,TestGame,4);
+    //SetField(7,2,TestGame,7);
+    //SetField(8,2,TestGame,6);
     printf("Test3\n");
 
-//    scanf("%i", &Number1);
-//    scanf("%i", &Number2);
+    //scanf("%i", &Number1);
+    //scanf("%i", &Number2);
 
-//    printf("%i\n",GetField(Number1,Number2,TestGame));
+    //printf("%i\n",GetField(Number1,Number2,TestGame));
     LoadMatchfieldFromFile(testgame,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
 
     //Gameloops
@@ -81,13 +79,10 @@ int main()
 int gameloop(int loopvar, SF GameFields[9][9])
 {
     int boolexit = 0;
-    char path[260];
     while (boolexit != 1)
     {
         switch(loopvar)
         {
-        case(0):
-            printf("Error. Unknown loop.");
         case(1):
             loopvar = menuLoop();
             break;
@@ -95,13 +90,8 @@ int gameloop(int loopvar, SF GameFields[9][9])
             loopvar = cursorloop(GameFields);
             break;
         case(3):
-            loopvar = ChooserLoop(path);
-            LoadMatchfieldFromFile(GameFields,path);
-            break;
-        case(4):
             return 0;
         }
     }
     return 0;
 }
-

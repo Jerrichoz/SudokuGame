@@ -1,8 +1,6 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
-#include <dirent.h>
-
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
 
@@ -19,9 +17,6 @@ int GetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9])
 
 int GenerateField(SF GameFields[9][9])
 {
-    //Clear Screen
-    system("cls");
-
     int i = 0;
     int j = 0;
     //Top border of the Grid
@@ -42,7 +37,7 @@ int GenerateField(SF GameFields[9][9])
 //            }
 //            else
 //            {
-            //Setting the Color
+            //Farbe per Funktion setzen
             //The cursor is marked as RED and YELLOW on a not-editable number it is
             //the other editable numbers are marked as GREEN and not editable as WHITE
             if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 1)
@@ -59,7 +54,7 @@ int GenerateField(SF GameFields[9][9])
             }
             else
             {
-                GameFields[j][i].Color = CYAN;
+                GameFields[j][i].Color = LIGHTGREEN;
             }
             printcoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
 
@@ -111,19 +106,19 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
         while((temp = fgetc(matchfield))!=EOF)
 
         {
-            //Saving the numerical sequenz into the array
+            //Saving the numerical sequence into the array
             //Char '1' - 48 equals Integer 1. Same for the other Numbers form 0 to 9.
-            NewMatchField[j][k].Number = temp-48;
-            //Setting the property Block
-            NewMatchField[j][k].Block = SetBlockForField(j,k);
             //Block for non-editable Fields (0 to 9)
+            NewMatchField[j][k].Number = temp-48;
             if (((temp - 48) >= 1) && ((temp - 48) <= 9))
             {
+                NewMatchField[j][k].Color = WHITE;
                 NewMatchField[j][k].Editable = 0;
             }
             //Block for editable Fields
             else
             {
+                NewMatchField[j][k].Color = LIGHTGREEN;
                 NewMatchField[j][k].Editable = 1;
             }
             //Counting Variable
@@ -143,7 +138,7 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
 
     }
     //Error output: File wasn't coorrect
-    return 1;
+    return 0;
 }
 
 int printInstructions(int menuorgame)
@@ -167,91 +162,4 @@ int printInstructions(int menuorgame)
     }
     return 0;
 }
-
-int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember)
-{
-    //Source: https://www.unixboard.de/threads/verzeichnis-auslesen-und-dateien-nummerieren-in-c.18416/
-    int i;
-    i = 0;
-    //Directory struct - dirHandle??????????
-    DIR *dirHandle;
-    struct dirent * dirEntry;
-
-    dirHandle = opendir("./matchfields");
-    if (dirHandle) {
-       while (0 != (dirEntry = readdir(dirHandle))) {
-            //. and .. should not be displayed
-            if(strcmp(dirEntry->d_name, ".")==0 ||
-               strcmp(dirEntry->d_name, "..")==0)
-               {
-                   continue;
-               }
-            //printf("%d) %s\n", i, dirEntry->d_name);
-            //copy the String in a list of strings
-            strcpy(NameList[i],dirEntry->d_name);
-            i ++;
-       }
-       closedir(dirHandle);
-       //The Number of List Member is the last index+1 (because indices are sstarting at 0)
-
-       *NumberOfListMember = i;
-    }
-    return 0;
-
-}
-
-
-int SetBlockForField(int xCoordinate, int yCoordinate)
-{
-    //First three columns (zero to three)
-    if((xCoordinate >= 0) && (xCoordinate <= 2))
-    {
-        if((yCoordinate >= 0) && (yCoordinate <= 2))
-        {
-            return 1;
-        }
-        if((yCoordinate >= 3) && (yCoordinate <= 5))
-        {
-            return 2;
-        }
-        if((yCoordinate >= 6) && (yCoordinate <= 8))
-        {
-            return 3;
-        }
-    }
-    //columns three to five
-    if((xCoordinate >= 3) && (xCoordinate <= 5))
-    {
-        if((yCoordinate >= 0) && (yCoordinate <= 2))
-        {
-            return 4;
-        }
-        if((yCoordinate >=3) && (yCoordinate <= 5))
-        {
-            return 5;
-        }
-        if((yCoordinate >= 6) && (yCoordinate <= 8))
-        {
-            return 6;
-        }
-    }
-    //columns six to eight
-    if((xCoordinate >= 6) && (xCoordinate <= 8))
-    {
-        if((yCoordinate >= 0) && (yCoordinate <= 2))
-        {
-            return 7;
-        }
-        if((yCoordinate >= 3) && (yCoordinate <= 5))
-        {
-            return 8;
-        }
-        if((yCoordinate >= 6) && (yCoordinate <= 8))
-        {
-            return 9;
-        }
-    }
-    return 0;
-}
-
 

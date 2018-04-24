@@ -36,15 +36,13 @@
 
 1523357622 c:\users\teilnehmer.pc29\desktop\sodoku\header.h
 
-1524578113 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\function.c
+1523364176 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\function.c
 	<windows.h>
 	"header.h"
-	<stdio.h>
-	<dirent.h>
 
-1524578165 c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\header.h
+1523364488 c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\header.h
 
-1524576471 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\main.c
+1523361135 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -132,33 +130,32 @@
 	"header.h"
 	<stdio.h>
 
-1524567936 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\colour.c
+1524483422 source:g:\schule\lf 6 1. lehrjahr\01-projekt\sudokugame-master\sodoku\colour.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 
-1524575469 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\cursormovement.c
-	<windows.h>
-	"header.h"
-	<stdio.h>
-	<conio.h>
+1524576798 g:\schule\lf 6 1. lehrjahr\01-projekt\sudokugame-master\sodoku\header.h
 
-1524577167 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\mainmenu.c
-	<windows.h>
-	"header.h"
-	<stdio.h>
-	<conio.h>
-
-1524571333 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\windowsettings.c
+1524483422 source:g:\schule\lf 6 1. lehrjahr\01-projekt\sudokugame-master\sodoku\cursormovement.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 
-1524577283 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\filechooser.c
+1524483422 source:g:\schule\lf 6 1. lehrjahr\01-projekt\sudokugame-master\sodoku\function.c
+	<windows.h>
 	"header.h"
-	<string.h>
+	<stdio.h>
+
+1524572960 source:g:\schule\lf 6 1. lehrjahr\01-projekt\sudokugame-master\sodoku\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
+	"header.h"
 	<windows.h>
+
+1524483422 source:g:\schule\lf 6 1. lehrjahr\01-projekt\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
 
