@@ -33,7 +33,7 @@ int GetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
 The Function displays the matchfield of the Current Game. The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
 */
 int GenerateField(SF GameFields[9][9]);
-int cursorloop(SF GameFields[9][9]);
+
 /*
 This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField. The second Parameter is a the Path for the File, which should be read out.
 */
@@ -44,14 +44,23 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
 //weder path noch NomberOfListMember funktionieren
 int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember);
 
+// //Colour.c -Start
+
+//Parameter decides which color is going to be set as textcolor
 int setColour(int colour);
+
+//Gets the Color which is set currently as textcolor
 int getColour();
 
-int SetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9],int Color);
-
-int GetSodokuFieldColor(int xCoordinate, int yCoordinate, SF GameFields[9][9]);
-
+//Prints the number in the colornumber, which is given through the parameters. The configured color will still be set afterwards.
 int printcoloredNR(int number, int color);
+
+// //Colour.c -End
+
+// //Cursormovement.c -Start
+
+//The Sudokufield loop
+int cursorloop(SF GameFields[9][9]);
 
 int SetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9],int editable);
 
