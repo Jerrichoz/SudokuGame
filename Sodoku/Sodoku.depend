@@ -213,3 +213,60 @@
 	<stdlib.h>
 	<windows.h>
 
+1525529625 source:c:\users\mhamm\desktop\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1525606192 c:\users\mhamm\desktop\sodoku\header.h
+
+1525529625 source:c:\users\mhamm\desktop\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1525529625 source:c:\users\mhamm\desktop\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525606174 source:c:\users\mhamm\desktop\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525529625 source:c:\users\mhamm\desktop\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1525529625 source:c:\users\mhamm\desktop\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525529625 source:c:\users\mhamm\desktop\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525606730 source:c:\users\mhamm\desktop\sodoku\savegame.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<time.h>
+	<string.h>
+
+1525606588 source:c:\users\mhamm\desktop\sodoku\loadgame.c
+	"header.h"
+	<stdio.h>
+	<string.h>
+

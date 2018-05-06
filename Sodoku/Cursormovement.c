@@ -58,6 +58,8 @@ GenerateField(GameFields);
             case(57):
                 setNumber(GameFields, c, arrayx, arrayy);
                 break;
+            case(108):
+                loadSaveGameFromFile(GameName,GameFields);
             case(115):
                 saveGame(GameFields,GameName);
                 break;

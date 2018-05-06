@@ -103,4 +103,8 @@ int ChooserLoop(char MatchName[],char path[]);
 
 int consolewindowsettings();
 
-int saveGame(char MatchField[9][9],char GameName[512]);
+int saveGame(SF MatchField[9][9],char GameName[512]);
+
+int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember);
+
+int loadSaveGameFromFile(char MatchName[], SF MatchField[9][9]);
