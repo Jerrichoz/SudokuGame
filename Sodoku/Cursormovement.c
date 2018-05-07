@@ -6,18 +6,18 @@
 int cursorloop(SF GameFields[9][9])
 {
 
-    ////Arraycoordinates to navigate
-    //the current position
+    // //Arraycoordinates to navigate
+    //setting the current position
     int arrayx = 4;
     int arrayy = 4;
     GameFields[arrayx][arrayy].Selected = 1;
 
-//    the last position
+    //Variables for saving the last position
     int oldarrayx = 4;
     int oldarrayy = 4;
 
 // First Generation of Field
-GenerateField(GameFields);
+    GenerateField(GameFields);
 
     //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
     //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
@@ -64,31 +64,12 @@ GenerateField(GameFields);
 
             //Generate the field
             GenerateField(GameFields);
-
-            //DELETE Testing
-//            printf("Gamefield Old X=%i und Y=%i und Colorvalue=%i\n", oldarrayx, oldarrayy,GameFields[oldarrayx][oldarrayy].Color);
-//            printf("Gamefield New X=%i und Y=%i und Colorvalue=%i\n", arrayx, arrayy, GameFields[arrayx][arrayy].Color);
         }
 
 
     }
     return 0;
 }
-
-// //Gets and Set the editability of the arraynumber
-// Setter
-int SetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9],int editable)
-{
-    (GameFields[xCoordinate][yCoordinate]).Editable = editable;
-    return 0;
-}
-
-// Getter
-int GetSodokuFieldEditability(int xCoordinate, int yCoordinate, SF GameFields[9][9])
-{
-    return (GameFields[xCoordinate][yCoordinate]).Editable;
-}
-
 
 // Moves in a two-dimensional environement accordingly to the third parameter
 int movearrow(int *x, int *y, int direction)

@@ -33,7 +33,6 @@ int main()
         {
             testgame[i][j].Number = 0;
             testgame[i][j].Color = LIGHTGREEN;
-
             testgame[i][j].Editable = 1;
             if(i == 4 && j == 4)
             {
@@ -47,16 +46,15 @@ int main()
         }
     }
 
-
-    testgame[6][0].Number = 8;
+    testgame[2][2].Number = 8;
     testgame[2][2].Color = WHITE;
     testgame[2][2].Editable = 0;
-
-
 
     testgame[6][0].Number = 2;
     testgame[6][0].Color = WHITE;
     testgame[6][0].Editable = 0;
+
+
 //    SetField(1,1,TestGame,1);
 //    SetField(3,1,TestGame,3);
 //    SetField(5,1,TestGame,7);
@@ -96,14 +94,21 @@ int gameloop(int loopvar, SF GameFields[9][9])
             loopvar = menuLoop();
             break;
         case(2):
-            loopvar = cursorloop(GameFields);
+            //loopvar = cursorloop(GameFields);
+            loopvar = randomGameLoop();
             break;
         case(3):
             loopvar = ChooserLoop(path);
-            LoadMatchfieldFromFile(GameFields,path);
+            //LoadMatchfieldFromFile(GameFields,path);
+            //TestingPurposes
+            generateRandomArray();
             break;
         case(4):
+            generateRandomArray();
             return 0;
+            break;
+        case(5):
+            break;
         }
     }
     return 0;

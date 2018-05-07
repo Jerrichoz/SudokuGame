@@ -48,6 +48,7 @@ int getColour()
 
 }
 
+
 int printcoloredNR (int number, int color)
 {
     int tempcolor = getColour();

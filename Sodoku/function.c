@@ -6,17 +6,6 @@
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
 
-int SetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9],int Number)
-{
-    (GameFields[xCoordinate][yCoordinate]).Number = Number;
-    return 0;
-}
-
-int GetSodokuField(int xCoordinate, int yCoordinate, SF GameFields[9][9])
-{
-    return GameFields[xCoordinate][yCoordinate].Number;
-}
-
 int GenerateField(SF GameFields[9][9])
 {
     //Clear Screen
