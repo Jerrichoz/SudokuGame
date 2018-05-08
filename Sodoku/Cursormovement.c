@@ -5,16 +5,30 @@
 
 int cursorloop(SF GameFields[9][9],char GameName[512])
 {
+    int arrayx,arrayy;
+    int Coordinates[2];
+    if (GetSelectedField(GameFields, Coordinates))
+    {
+        arrayx = Coordinates[0];
+        arrayy = Coordinates[1];
+    }
+    else
+    {
+        arrayx = 4;
+        arrayy = 4;
+    }
 
     ////Arraycoordinates to navigate
     //the current position
-    int arrayx = 4;
-    int arrayy = 4;
+
     GameFields[arrayx][arrayy].Selected = 1;
 
 //    the last position
-    int oldarrayx = 4;
-    int oldarrayy = 4;
+    int oldarrayx = arrayx;
+    int oldarrayy = arrayy;
+
+
+
 
 // First Generation of Field
 GenerateField(GameFields);
@@ -37,6 +51,9 @@ GenerateField(GameFields);
             char c = getch();
             switch(c)
             {
+            //Exit
+            case(27):
+                return 1;
             //Movement
             case(72):
             case(80):
@@ -58,10 +75,8 @@ GenerateField(GameFields);
             case(57):
                 setNumber(GameFields, c, arrayx, arrayy);
                 break;
-            case(108):
-                loadSaveGameFromFile(GameName,GameFields);
             case(115):
-                saveGame(GameFields,GameName);
+                saveGame(GameName,GameFields);
                 break;
             }
             //Set as Selected
@@ -192,4 +207,22 @@ int setNumber(SF GameFields[9][9],int number, int x, int y)
         return 1;
     }
     return 1;
+}
+
+int GetSelectedField(SF MatchField[9][9], int Coordinate[2])
+{
+    int i,j;
+    for(i = 0; i < 9; i++)
+    {
+        for(j = 0; j < 9; j++)
+        {
+            if(MatchField[i][j].Selected == 1)
+            {
+                Coordinate[0] = i;
+                Coordinate[1] = j;
+                return 1;
+            }
+        }
+    }
+    return 0;
 }

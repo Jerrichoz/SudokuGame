@@ -4,19 +4,19 @@
 #include <time.h>
 #include <string.h>
 
-int saveGame(SF MatchField[9][9],char GameName[512])
+int saveGame(char MatchName[512], SF MatchField[9][9])
 {
     //Sources:
     //http://www.c-howto.de/tutorial/dateiverarbeitung/oeffnen-schliessen/
     //http://www.c-howto.de/tutorial/strings-zeichenketten/string-funktionen/strings-vergleichn/
     char SaveGameName[1024];
-    int i,j;
+    int i,j,escaped;
     char temp1[512];
     char temp2[512];
     char path[1024] = "./savegames/";
     char input[512];//Input from User
-    char compstring[512] = "New Savegame";//to check if read string was not empty
-    strcpy(temp2,GameName);
+    char compstring[512] = "New File";//to check if read string was not empty
+    strcpy(temp2,MatchName);
     //set String "SaveGameName"
     strcpy(temp2, strtok(temp2,"."));
     //Source: http://www.c-howto.de/tutorial/zeitfunktionen/
@@ -29,7 +29,11 @@ int saveGame(SF MatchField[9][9],char GameName[512])
     //Savegamename ist gesetzt
     FILE *savegamefile;
 
-    ChooserLoop(input,path);
+    escaped = ChooserLoop(input,path,1);
+    if(escaped)
+    {
+        return 0;
+    }
     if(strcmp(input,compstring) == 0)
     {
         strcpy(compstring,"");

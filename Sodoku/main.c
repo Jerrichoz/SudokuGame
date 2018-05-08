@@ -67,7 +67,6 @@ int main()
 //    scanf("%i", &Number2);
 
 //    printf("%i\n",GetField(Number1,Number2,TestGame));
-    LoadMatchfieldFromFile(testgame,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
 
     //Gameloops
     //GenerateField(testgame);
@@ -88,20 +87,24 @@ int gameloop(int loopvar, SF GameFields[9][9])
         switch(loopvar)
         {
         case(0):
+
             printf("Error. Unknown loop.");
         case(1):
-            loopvar = menuLoop();
+            loopvar = menuLoop(GameFields,GameName);
             break;
         case(2):
             loopvar = cursorloop(GameFields,GameName);
             break;
         case(3):
-            loopvar = ChooserLoop(GameName,path);
+            loopvar = ChooserLoop(GameName,path,0);
             strcpy(path, strcat(path,GameName));
             LoadMatchfieldFromFile(GameFields,path);
             break;
         case(4):
             return 0;
+        case(5):
+            loopvar = loadSaveGameFromFile(GameName,GameFields);
+            break;
         }
     }
     return 0;

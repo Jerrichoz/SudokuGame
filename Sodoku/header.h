@@ -39,11 +39,6 @@ This Function loads one matchfield File. The matchfield is loaded into the param
 */
 int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
 
-//This Function looks in the path (parameter path) and writes all the Files in the directory into a List (parameter NameList). In the parameter NumberOfListMember will be written, how many Files are found in the directory.
-
-//weder path noch NomberOfListMember funktionieren
-int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember);
-
 int setColour(int colour);
 int getColour();
 
@@ -80,7 +75,7 @@ int exitGraphic(int selected);
 
 //Gameloop
 int gameloop(int loopvar, SF GameFields[9][9]);
-int ChooserLoop(char MatchName[],char path[]);
+int ChooserLoop(char MatchName[512],char path[],int CreateNewFile);
 
 //Color Constants
 #define BLUE 1
@@ -103,8 +98,10 @@ int ChooserLoop(char MatchName[],char path[]);
 
 int consolewindowsettings();
 
-int saveGame(SF MatchField[9][9],char GameName[512]);
+int saveGame(char MatchName[512], SF MatchField[9][9]);
 
-int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember);
+int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember, int CreateNewFile);
 
-int loadSaveGameFromFile(char MatchName[], SF MatchField[9][9]);
+int loadSaveGameFromFile(char MatchName[512], SF MatchField[9][9]);
+
+int GetSelectedField(SF MatchField[9][9], int Coordinate[2]);

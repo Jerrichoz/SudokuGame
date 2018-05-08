@@ -148,7 +148,9 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
 
 int printInstructions(int menuorgame)
 {
+    //1 for GameLooop
     //Print Game Instructions
+
     if(menuorgame == 1)
     {
         printf("\n\n\n\n");
@@ -159,7 +161,15 @@ int printInstructions(int menuorgame)
         printf("NUMBERS:\n");
         printf("0-9 are the only viable Options for a number in this Sudoku!\n\n");
         printf("OPTIONS:\n");
-        printf("SAVING with F5 and go back");
+        printf("SAVING with s");
+    }
+    else if(menuorgame == 2)
+    {
+        printf("\n\n\n\n");
+        printf("KEYBINDINGS\n");
+        printf("-------------------------------------------------------------\n");
+        printf("SELECTION:\n");
+        printf("UPARROW for UP, DOWNARROW for DOWN\n\n");
     }
     else
     {
@@ -168,7 +178,7 @@ int printInstructions(int menuorgame)
     return 0;
 }
 
-int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember)
+int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember, int CreateNewFile)
 {
     //Source: https://www.unixboard.de/threads/verzeichnis-auslesen-und-dateien-nummerieren-in-c.18416/
     int i;
@@ -192,6 +202,11 @@ int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMembe
             i ++;
        }
        closedir(dirHandle);
+    if (CreateNewFile)
+    {
+        strcpy(NameList[i],"New File");
+        i++;
+    }
        //The Number of List Member is the last index+1 (because indices are sstarting at 0)
 
        *NumberOfListMember = i;

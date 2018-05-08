@@ -38,6 +38,7 @@ int menuLoop()
                     break;
                     //Load Game
                 case(2):
+                    return 5;
                     break;
                     //Exit Game
                 case(3):

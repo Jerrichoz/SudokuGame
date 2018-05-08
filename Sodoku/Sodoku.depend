@@ -23,18 +23,20 @@
 
 1523314349 c:\users\jan\desktop\sodoku\header.h
 
-1523357619 source:c:\users\teilnehmer.pc29\desktop\sodoku\function.c
+1525860876 source:c:\users\teilnehmer.pc29\desktop\sodoku\function.c
 	<windows.h>
 	"header.h"
+	<stdio.h>
+	<dirent.h>
 
-1523357648 source:c:\users\teilnehmer.pc29\desktop\sodoku\main.c
+1525861414 source:c:\users\teilnehmer.pc29\desktop\sodoku\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	"header.h"
 	<windows.h>
 
-1523357622 c:\users\teilnehmer.pc29\desktop\sodoku\header.h
+1525862707 c:\users\teilnehmer.pc29\desktop\sodoku\header.h
 
 1524578113 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\function.c
 	<windows.h>
@@ -269,4 +271,48 @@
 	"header.h"
 	<stdio.h>
 	<string.h>
+
+1525853114 source:c:\users\teilnehmer.pc29\desktop\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525863078 source:c:\users\teilnehmer.pc29\desktop\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525861889 source:c:\users\teilnehmer.pc29\desktop\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1525861995 source:c:\users\teilnehmer.pc29\desktop\sodoku\loadgame.c
+	"header.h"
+	<stdio.h>
+	<string.h>
+
+1525855677 source:c:\users\teilnehmer.pc29\desktop\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525861815 source:c:\users\teilnehmer.pc29\desktop\sodoku\savegame.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<time.h>
+	<string.h>
+
+1525853114 source:c:\users\teilnehmer.pc29\desktop\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525855875 source:c:\users\teilnehmer.pc29\desktop\sodoku\wirdgelöscht.c
 
