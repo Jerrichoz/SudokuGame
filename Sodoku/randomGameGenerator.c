@@ -14,9 +14,44 @@ int randomGameGen(SF NewMatchField[9][9])
 
     genEmptySodoku(NewMatchField);
     genThreeIndependentBlocks(NewMatchField);
-
+    sodokuSolver(NewMatchField);
     //cursorloop(NewMatchField);
+    return 0;
+}
 
+//Source:
+//https://www.geeksforgeeks.org/backtracking-set-7-suduku/
+int sodokuSolver(SF NewMatchField[9][9])
+{
+    int row = 0;
+    int column = 0;
+    int num = 1;
+    printf("In Solver");
+
+
+    if(findUnassigned(NewMatchField, &row, &column) == 1)
+    {
+        //Success
+        return 1;
+    }
+
+    for(num = 1; num <=  9; num++)
+    {
+        if(checkRowsAndColumnsAndBlock(NewMatchField, num, row, column, NewMatchField[row][column].Block) == 1)
+        {
+            //So far no problems, save the number
+            NewMatchField[row][column].Number = num;
+
+            if(sodokuSolver(NewMatchField)== 1)
+            {
+                //Success
+                return 1;
+            }
+            //If a problem occurs
+            NewMatchField[row][column].Number = 0;
+        }
+    }
+    printf("Backtrack!!");
     return 0;
 }
 
@@ -39,12 +74,10 @@ int genEmptySodoku(SF NewMatchField[9][9])
 
 int genThreeIndependentBlocks(SF NewMatchField[9][9])
 {
-    int i, j,k,l,m;
+    int i,j,k,l,m;
     k = 0;
     l = 0;
     m = 0;
-    int newnumber = 0;
-    int failure = 0;
 
     //Generating all 9 numbers for 3 independent blocks
     for(i=0; i<9; i++)
@@ -68,29 +101,27 @@ int genThreeIndependentBlocks(SF NewMatchField[9][9])
             }
         }
     }
-    srand(time(NULL));
-    for(i=0; i<9; i++)
-    {
-        for(j=0; j<9; j++)
-        {
-            if(NewMatchField[i][j].Number == 0)
-            {
-                do
-                {
-                    newnumber = rand()%9 + 1;
-                    failure = checkRowsAndColumnsAndBlock(NewMatchField, newnumber, i, j, NewMatchField[i][j].Block);
-                }
-                while(failure == 0);
-                NewMatchField[i][j].Number = newnumber;
-            }
-        }
-    }
     return 0;
 }
 
+
+int findUnassigned(SF NewMatchField[9][9], int *row, int *column)
+{
+    for(*row=0; *row<9; *row++)
+    {
+        for(*column=0; *column<9; *column++)
+        {
+            if(NewMatchField[*row][*column].Number == 0)
+            {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
 int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block)
 {
-    int i,j;
+    int i,j,k,l;
 
     for(i=0; i<9; i++)
     {
@@ -109,28 +140,25 @@ int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, 
             //newnumber is alrdy in a row or a column
             return 0;
         }
-        else
-        {
-            //Success new number is not in a row or a column alrdy
-            return 1;
-
-        }
     }
-    for(i=0; i<9; i++)
+    for(k=0; k<9; k++)
     {
-        for(j=0; j<9; j++)
+        for(l=0; l<9; l++)
         {
-            if(NewMatchField[i][j].Block == block)
+            if(NewMatchField[k][l].Block == block)
             {
-                if(testnumber == NewMatchField[i][j].Number)
+
+                if(testnumber != NewMatchField[k][l].Number)
                 {
+                    //printf("Testnumer: %i  MatchfieldNumber: %i",testnumber, NewMatchField[k][l].Number);
                     //Number in this block allrdy
-                    return 0;
+                    return 1;
                 }
                 else
                 {
+                    //printf("Success");
                     //Success
-                    return 1;
+                    return 0;
                 }
             }
         }

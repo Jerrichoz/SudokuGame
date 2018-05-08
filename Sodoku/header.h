@@ -182,6 +182,11 @@ int hardRndGraphic(int selected);
 int rndarray[9][3];
 int randomGameGen(SF NewMatchField[9][9]);
 
+int sodokuSolver(SF NewMatchField[9][9]);
+
+int findUnassigned(SF NewMatchField[9][9], int *row, int *column);
+
+
 int genEmptySodoku(SF NewMatchField[9][9]);
 int genThreeIndependentBlocks(SF NewMatchField[9][9]);
 int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block);

@@ -108,7 +108,7 @@ int gameloop(int loopvar, SF GameFields[9][9])
             generateRandomArray();
             randomGameGen(GameFields);
             loopvar = cursorloop(GameFields);
-            cursorloop(GameFields);
+
             break;
         //Random Game
         case(5):
