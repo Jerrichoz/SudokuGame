@@ -182,6 +182,9 @@ int hardRndGraphic(int selected);
 int rndarray[9][3];
 int randomGameGen(SF NewMatchField[9][9]);
 
+int genEmptySodoku(SF NewMatchField[9][9]);
+int genThreeIndependentBlocks(SF NewMatchField[9][9]);
+int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block);
 // Generates a random array with the numbers 0-9, so filling blocks becomes very easy
 int generateRandomArray();
 // // randomgameGenerator.c -End

@@ -58,6 +58,11 @@ int cursorloop(SF GameFields[9][9])
             case(57):
                 setNumber(GameFields, c, arrayx, arrayy);
                 break;
+            //Escape
+            case(27):
+                GameFields[arrayx][arrayy].Selected = 0;
+                return 1;
+                break;
             }
             //Set as Selected
             GameFields[arrayx][arrayy].Selected = 1;

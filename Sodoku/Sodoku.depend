@@ -334,20 +334,20 @@
 	"header.h"
 	<windows.h>
 
-1525781235 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\colour.c
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\colour.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 
-1525790859 c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\header.h
+1525807942 c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\header.h
 
-1525781235 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\cursormovement.c
+1525806043 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\cursormovement.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 	<conio.h>
 
-1525781235 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\filechooser.c
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\filechooser.c
 	"header.h"
 	<string.h>
 	<stdio.h>
@@ -355,40 +355,41 @@
 	<stdlib.h>
 	<windows.h>
 
-1525781235 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\function.c
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\function.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 	<dirent.h>
 
-1525791563 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\main.c
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	"header.h"
 	<windows.h>
 
-1525783435 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\mainmenu.c
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\mainmenu.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 	<conio.h>
 
-1525791302 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\randomgamegenerator.c
+1525808353 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\randomgamegenerator.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+	<time.h>
+
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\randomgamemenu.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	"header.h"
 	<windows.h>
 
-1525791563 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\randomgamemenu.c
-	<stdio.h>
-	<conio.h>
-	<stdlib.h>
-	"header.h"
-	<windows.h>
-
-1525781236 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\windowsettings.c
+1525804830 source:c:\users\teilnehmer.pc29\desktop\sudokugame-test\sodoku\windowsettings.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
