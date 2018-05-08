@@ -55,6 +55,7 @@ int main()
     testgame[6][0].Editable = 0;
 
 
+
 //    SetField(1,1,TestGame,1);
 //    SetField(3,1,TestGame,3);
 //    SetField(5,1,TestGame,7);
@@ -79,7 +80,8 @@ int main()
 
     return 0;
 }
-
+//GameLoop needs to be moved out of here
+//It's the MainLoop
 int gameloop(int loopvar, SF GameFields[9][9])
 {
     int boolexit = 0;
@@ -90,6 +92,7 @@ int gameloop(int loopvar, SF GameFields[9][9])
         {
         case(0):
             printf("Error. Unknown loop.");
+        //MainMenu - Starting Point, switching into the MenuLoop
         case(1):
             loopvar = menuLoop();
             break;
@@ -99,15 +102,17 @@ int gameloop(int loopvar, SF GameFields[9][9])
             break;
         case(3):
             loopvar = ChooserLoop(path);
-            //LoadMatchfieldFromFile(GameFields,path);
-            //TestingPurposes
-            generateRandomArray();
+            LoadMatchfieldFromFile(GameFields,path);
             break;
         case(4):
             generateRandomArray();
-            return 0;
+            randomGameGen(GameFields);
+            loopvar = cursorloop(GameFields);
+            cursorloop(GameFields);
             break;
+        //Random Game
         case(5):
+            loopvar = cursorloop(GameFields);
             break;
         }
     }

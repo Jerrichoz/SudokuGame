@@ -4,7 +4,7 @@
 #include "header.h"
 #include <windows.h>
 
-int randomGameLoop()
+int randomGameLoop(SF GameFields[9][9])
 {
     int menuPosition = 0;
     generateRandomGameMenu(menuPosition);
@@ -34,14 +34,17 @@ int randomGameLoop()
                     break;
                 //Medium random Game
                 case(1):
-                    return 2;
+                    generateRandomArray();
+                    return 0;
                     break;
                 //Hard random Game
                 case(2):
+
+                    return 4;
                     break;
                 //Exit Game
                 case(27):
-                    return 5;
+
                     break;
                 }
             }

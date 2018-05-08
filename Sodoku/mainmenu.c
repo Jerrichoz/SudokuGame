@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-
+//The second loop we are in
 int menuLoop()
 {
     int menuPosition = 0;
