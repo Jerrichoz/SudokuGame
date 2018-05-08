@@ -1,0 +1,318 @@
+# depslib dependency file v1.0
+1523264867 source:c:\users\teilnehmer\desktop\sodoku\function.c
+
+1523265159 source:c:\users\teilnehmer\desktop\sodoku\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1523313893 source:c:\users\maks\desktop\programmier-projekt\sudoku-master\sodoku\function.c
+
+1523314295 source:c:\users\maks\desktop\programmier-projekt\sudoku-master\sodoku\main.c
+	<stdio.h>
+	<stdlib.h>
+	"header.h"
+
+1523314349 c:\users\maks\desktop\programmier-projekt\sudoku-master\sodoku\header.h
+
+1523316034 source:c:\users\jan\desktop\sodoku\function.c
+
+1523315710 source:c:\users\jan\desktop\sodoku\main.c
+	<stdio.h>
+	<stdlib.h>
+	"header.h"
+
+1523314349 c:\users\jan\desktop\sodoku\header.h
+
+1523357619 source:c:\users\teilnehmer.pc29\desktop\sodoku\function.c
+	<windows.h>
+	"header.h"
+
+1523357648 source:c:\users\teilnehmer.pc29\desktop\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1523357622 c:\users\teilnehmer.pc29\desktop\sodoku\header.h
+
+1524578113 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1524578165 c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\header.h
+
+1524576471 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1523362403 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\cursor.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523805923 source:c:\users\maks\desktop\azubilife\lernfach vi\programme\sudoku\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+
+1523805473 c:\users\maks\desktop\azubilife\lernfach vi\programme\sudoku\sudokugame-master\sodoku\header.h
+
+1523806629 source:c:\users\maks\desktop\azubilife\lernfach vi\programme\sudoku\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1523809127 source:c:\users\maks\desktop\azubilife\lernfach vi\programme\sudoku\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523570415 source:c:\users\maks\desktop\azubilife\lernfach vi\programme\sudoku\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523823657 source:c:\users\jan\desktop\suodokutomerge\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523823866 c:\users\jan\desktop\suodokutomerge\header.h
+
+1523823657 source:c:\users\jan\desktop\suodokutomerge\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1523823657 source:c:\users\jan\desktop\suodokutomerge\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1523823939 source:c:\users\jan\desktop\suodokutomerge\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524086371 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524515432 c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\header.h
+
+1524515080 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524424813 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524515743 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1524515907 source:c:\users\maks\desktop\programmier-projekt\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524567936 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524575469 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524577167 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524571333 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524577283 source:c:\users\teilnehmer.pc29\desktop\sudoku\sudokugame-master\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1524570957 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524572357 c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\header.h
+
+1524571546 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524572357 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1524570957 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1524570957 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1524591473 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524591473 source:c:\users\teilnehmer.pc29\desktop\sudoku ----\sudokugame-master\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524600944 c:\users\maks\desktop\programmier-projekt\sodoku\header.h
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1524601020 source:c:\users\maks\desktop\programmier-projekt\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1524599843 source:c:\users\maks\desktop\programmier-projekt\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1524545590 source:c:\users\maks\desktop\programmier-projekt\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1524601211 source:c:\users\maks\desktop\programmier-projekt\sodoku\randomgamemenu.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1525766958 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525767220 c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\header.h
+
+1525773317 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525766958 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1525766958 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1525767588 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1525766958 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525766958 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525773797 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\solvesudoku.c
+	<windows.h>
+	<stdio.h>
+	"header.h"
+
+1525766958 source:c:\users\teilnehmer.pc29\desktop\master\sudokugame-master\sodoku\randomgamemenu.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
