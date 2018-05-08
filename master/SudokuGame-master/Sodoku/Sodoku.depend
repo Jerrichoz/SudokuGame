@@ -316,3 +316,60 @@
 	"header.h"
 	<windows.h>
 
+1525766960 source:g:\projekt lf6\master\sudokugame-master\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525767222 g:\projekt lf6\master\sudokugame-master\sodoku\header.h
+
+1525787378 source:g:\projekt lf6\master\sudokugame-master\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525766960 source:g:\projekt lf6\master\sudokugame-master\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+
+1525766960 source:g:\projekt lf6\master\sudokugame-master\sodoku\function.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<dirent.h>
+
+1525767590 source:g:\projekt lf6\master\sudokugame-master\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1525766960 source:g:\projekt lf6\master\sudokugame-master\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1525766960 source:g:\projekt lf6\master\sudokugame-master\sodoku\randomgamemenu.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1525766960 source:g:\projekt lf6\master\sudokugame-master\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1525788786 source:g:\projekt lf6\master\sudokugame-master\sodoku\solvesudoku.c
+	<windows.h>
+	<stdio.h>
+	"header.h"
+

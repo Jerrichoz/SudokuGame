@@ -17,39 +17,39 @@ int checkFilledGrid(SF GameFields[9][9])
             int number = 0;
             number = GameFields[j][i].Number;
 
-            int numberArray[9] = {1,2,3,4,5,6,7,8,9};
+            //int numberArray[9] = {1,2,3,4,5,6,7,8,9};
 
             //Zeile
-            if(number == GameFields[j][0].Number)
+            if(number != GameFields[j][i].Number)
             {
-                printf("Der Wert ist bereits vorhanden!");
+                printf("\n\nDer Wert ist noch nicht vorhanden!\n\n");
                 return true;
             }
             else
             {
-                printf("Der Wert ist noch nicht vorhanden!");
+                printf("\n\nDer Wert ist bereits vorhanden!\n\n");
                 return false;
             }
             //Spalte
-            if(number == GameFields[0][i].Number)
+            if(number != GameFields[j][i].Number)
             {
-                printf("Der Wert ist bereits vorhanden!");
+                printf("\n\nDer Wert ist noch nicht vorhanden!\n\n");
                 return true;
             }
             else
             {
-                printf("Der Wert ist noch nicht vorhanden!");
+                printf("\n\nDer Wert ist bereits vorhanden!\n\n");
                 return false;
             }
             //Block
-            if(number == GameFields[j][i].Block)
+            if(number != GameFields[j][i].Block)
             {
-                printf("Der Wert ist bereits vorhanden!");
+                printf("\n\nDer Wert ist noch nicht vorhanden!\n\n");
                 return true;
             }
             else
             {
-                printf("Der Wert ist noch nicht vorhanden!");
+                printf("\n\nDer Wert ist bereits vorhanden!\n\n");
                 return false;
             }
         }

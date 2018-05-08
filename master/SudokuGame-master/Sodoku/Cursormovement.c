@@ -60,7 +60,7 @@ int cursorloop(SF GameFields[9][9])
                 break;
                 //c for check
             case(99):
-                checkFilledGrid(GameFields);
+                checkFilledGrid(GameFields[arrayx][arrayy].Selected);
             }
             //Set as Selected
             GameFields[arrayx][arrayy].Selected = 1;
