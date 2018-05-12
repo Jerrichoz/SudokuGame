@@ -14,6 +14,8 @@ typedef struct SodokuField
     int Color;
     int Selected;
     int Block;
+    int Error;
+    int Hint;
 } SF;
 
 // This function is in main --> needs to be changed
@@ -28,7 +30,7 @@ The Function displays the matchfield of the Current Game.
 The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
 COMMENT NEED MAX
 */
-int GenerateField(SF GameFields[9][9]);
+int GenerateField(SF GameFields[9][9], int instruction);
 
 /*
 This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField.
@@ -158,7 +160,7 @@ int ChooserLoop(char path[]);
 /*
 generates the random game menu loop
 */
-int randomGameLoop();
+int randomGameLoop(SF GameFields[9][9], int *difficulty);
 
 /*
 Builds the random game menu
@@ -180,12 +182,16 @@ int hardRndGraphic(int selected);
 // // randomgameGenerator.c -Start
 //Array
 int rndarray[9][3];
-int randomGameGen(SF NewMatchField[9][9]);
+int randomGameGen(SF NewMatchField[9][9], int difficulty);
 
 int sodokuSolver(SF NewMatchField[9][9]);
 
 int findUnassigned(SF NewMatchField[9][9], int *row, int *column);
 
+int numberRemover(SF NewMatchField[9][9], int difficulty);
+int setSodokuEditabilty(SF NewMatchField[9][9]);
+
+int checkIfSolved(SF GameFields[9][9]);
 
 int genEmptySodoku(SF NewMatchField[9][9]);
 int genThreeIndependentBlocks(SF NewMatchField[9][9]);
@@ -213,6 +219,15 @@ int generateRandomArray();
 #define YELLOW 14
 #define WHITE 15
 
+//  Diffuculty Levels
+#define HARD 50
+#define MEDIUM 40
+#define EASY 30
 
+// Instruction Menu
+#define GAME 1
+#define MENU 2
+#define SOLVED 3
+#define NOTSOLVED 4
 
 

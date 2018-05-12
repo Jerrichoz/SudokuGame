@@ -6,6 +6,7 @@
 int cursorloop(SF GameFields[9][9])
 {
 
+    int instructionmenu = GAME;
     // //Arraycoordinates to navigate
     //setting the current position
     int arrayx = 4;
@@ -16,8 +17,9 @@ int cursorloop(SF GameFields[9][9])
     int oldarrayx = 4;
     int oldarrayy = 4;
 
+    int row,column;
 // First Generation of Field
-    GenerateField(GameFields);
+    GenerateField(GameFields, instructionmenu);
 
     //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
     //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
@@ -26,6 +28,7 @@ int cursorloop(SF GameFields[9][9])
     int boolexit = 0;
     while(boolexit != 1)
     {
+        instructionmenu = GAME;
         // Nur wenn auch eine Taste gedrückt ist
         if(kbhit())
         {
@@ -58,19 +61,34 @@ int cursorloop(SF GameFields[9][9])
             case(57):
                 setNumber(GameFields, c, arrayx, arrayy);
                 break;
-            //Escape
+            // //Functions
+            //Escape esc
             case(27):
                 GameFields[arrayx][arrayy].Selected = 0;
                 return 1;
                 break;
+            //Check c
+            case(99):
+                instructionmenu = checkIfSolved(GameFields);
+                break;
+            //Hint h
+            case(104):
+                if(!findUnassigned(GameFields, &row, &column))
+                {
+                GameFields[row][column].Number = GameFields[row][column].Hint;
+                }
+                break;
             }
+
             //Set as Selected
             GameFields[arrayx][arrayy].Selected = 1;
 
             //Generate the field
-            GenerateField(GameFields);
-        }
+            GenerateField(GameFields, instructionmenu);
 
+
+
+        }
 
     }
     return 0;

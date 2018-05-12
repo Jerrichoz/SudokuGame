@@ -7,15 +7,16 @@
 
 
 
-int randomGameGen(SF NewMatchField[9][9])
+int randomGameGen(SF NewMatchField[9][9], int difficulty)
 {
 
 
-
+    generateRandomArray();
     genEmptySodoku(NewMatchField);
     genThreeIndependentBlocks(NewMatchField);
     sodokuSolver(NewMatchField);
-    //cursorloop(NewMatchField);
+    numberRemover(NewMatchField, difficulty);
+    setSodokuEditabilty(NewMatchField);
     return 0;
 }
 
@@ -26,32 +27,33 @@ int sodokuSolver(SF NewMatchField[9][9])
     int row = 0;
     int column = 0;
     int num = 1;
-    printf("In Solver");
 
 
-    if(findUnassigned(NewMatchField, &row, &column) == 1)
+    if(findUnassigned(NewMatchField, &row, &column))
     {
         //Success
+        //printf("Solved!");
         return 1;
     }
-
+    //printf("Row: %i, Column: %i, Number: %i", column, row, num);
     for(num = 1; num <=  9; num++)
     {
-        if(checkRowsAndColumnsAndBlock(NewMatchField, num, row, column, NewMatchField[row][column].Block) == 1)
+        if(checkRowsAndColumnsAndBlock(NewMatchField, num, row, column, NewMatchField[row][column].Block))
         {
             //So far no problems, save the number
             NewMatchField[row][column].Number = num;
-
-            if(sodokuSolver(NewMatchField)== 1)
+            //printf("Row: %i, Column: %i, Number: %i", column, row, num);
+            if(sodokuSolver(NewMatchField))
             {
                 //Success
+                //printf("Solved!");
                 return 1;
             }
-            //If a problem occurs
+            //If a problem occurs, backtrack
             NewMatchField[row][column].Number = 0;
         }
     }
-    printf("Backtrack!!");
+    //Backtrack!
     return 0;
 }
 
@@ -66,7 +68,29 @@ int genEmptySodoku(SF NewMatchField[9][9])
             NewMatchField[i][j].Block = SetBlockForField(i,j);
             NewMatchField[i][j].Number = 0;
             NewMatchField[i][j].Editable = 1;
+            NewMatchField[i][j].Error = 0;
 
+        }
+    }
+    return 0;
+}
+
+int setSodokuEditabilty(SF NewMatchField[9][9])
+{
+    int i,j;
+
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            if(NewMatchField[i][j].Number != 0)
+            {
+                NewMatchField[i][j].Editable = 0;
+            }
+            else
+            {
+                NewMatchField[i][j].Editable = 1;
+            }
         }
     }
     return 0;
@@ -107,9 +131,9 @@ int genThreeIndependentBlocks(SF NewMatchField[9][9])
 
 int findUnassigned(SF NewMatchField[9][9], int *row, int *column)
 {
-    for(*row=0; *row<9; *row++)
+    for(*row = 0; *row<9; *row+= 1)
     {
-        for(*column=0; *column<9; *column++)
+        for(*column = 0; *column<9; *column+= 1)
         {
             if(NewMatchField[*row][*column].Number == 0)
             {
@@ -123,51 +147,48 @@ int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, 
 {
     int i,j,k,l;
 
+    //First, columns are checked
     for(i=0; i<9; i++)
     {
 
         if(testnumber == NewMatchField[i][column].Number)
         {
-            //newnumber is alrdy in a row or a column
+            //testnumber is already in a column
             return 0;
         }
     }
-
+    //Secondly, rows are checked
     for(j=0; j<9; j++)
     {
         if(testnumber == NewMatchField[row][j].Number)
         {
-            //newnumber is alrdy in a row or a column
+            //testnumber is already in a row
             return 0;
         }
     }
+    //At last, the inner box is checked
     for(k=0; k<9; k++)
     {
         for(l=0; l<9; l++)
         {
-            if(NewMatchField[k][l].Block == block)
+            if(block == NewMatchField[k][l].Block)
             {
 
-                if(testnumber != NewMatchField[k][l].Number)
+                if(testnumber == NewMatchField[k][l].Number)
                 {
                     //printf("Testnumer: %i  MatchfieldNumber: %i",testnumber, NewMatchField[k][l].Number);
                     //Number in this block allrdy
-                    return 1;
-                }
-                else
-                {
-                    //printf("Success");
-                    //Success
                     return 0;
                 }
             }
         }
     }
-    return 3;
+    //If nothing gets returned beforehand, the number is valid!
+    return 1;
 
 }
 
-//Quelle Lottozahlen-Projekt(in Moodle)
+//Source Lottozahlen-Projekt(in Moodle)
 int generateRandomArray()
 {
 
@@ -207,9 +228,110 @@ int generateRandomArray()
             rndarray[j][k] = vergleich;
             //printf("Zahl %i ist: %i\n", i+1, rndarray[j][k] );
 
-
-
         }
     }
     return 0;
+}
+
+int numberRemover(SF NewMatchField[9][9], int difficulty)
+{
+    int rownumber;
+    int columnnumber;
+    srand(time(NULL));
+
+    do
+    {
+
+        rownumber = rand()%9;
+        columnnumber = rand()%9;
+        if(NewMatchField[rownumber][columnnumber].Number != 0)
+        {
+            NewMatchField[rownumber][columnnumber].Hint = NewMatchField[rownumber][columnnumber].Number;
+            NewMatchField[rownumber][columnnumber].Number = 0;
+            difficulty--;
+        }
+
+    }
+    while(difficulty != 0);
+
+
+    return 0;
+}
+
+int checkIfSolved(SF GameFields[9][9])
+{
+    int i,j,sum;
+    int checksum = 1+2+3+4+5+6+7+8+9;
+    int blocknumber;
+
+    //Columns
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            sum += GameFields[i][j].Number;
+            if(j == 8)
+            {
+                if(sum != checksum)
+                {
+                    GameFields[i][j].Number = sum;
+                    return NOTSOLVED;
+                }
+                else
+                {
+                    sum = 0;
+                }
+            }
+        }
+    }
+    //Rows
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            sum += GameFields[j][i].Number;
+            if(j == 8)
+            {
+                if(sum != checksum)
+                {
+                    GameFields[j][i].Number = sum;
+                    return NOTSOLVED;
+                }
+                else
+                {
+                    sum = 0;
+                }
+            }
+        }
+    }
+    //Blocks
+    for(blocknumber = 1; blocknumber < 10; blocknumber=blocknumber + 1)
+    {
+        for(i=0; i<9; i++)
+        {
+            for(j=0; j<9; j++)
+            {
+                if(GameFields[i][j].Block == blocknumber)
+                {
+                    sum += GameFields[i][j].Number;
+
+                }
+            }
+            if((i == 8) && (j == 9))
+            {
+                if(sum != checksum)
+                {
+                    GameFields[i][j].Number = sum;
+                    return NOTSOLVED;
+                }
+                else
+                {
+                    sum = 0;
+                }
+            }
+
+        }
+    }
+//Sodoku is solved!
+return SOLVED;
 }

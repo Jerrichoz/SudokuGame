@@ -4,7 +4,7 @@
 #include "header.h"
 #include <windows.h>
 
-int randomGameLoop(SF GameFields[9][9])
+int randomGameLoop(SF GameFields[9][9], int *difficulty)
 {
     int menuPosition = 0;
     generateRandomGameMenu(menuPosition);
@@ -30,16 +30,17 @@ int randomGameLoop(SF GameFields[9][9])
                 {
                 //Easy random Game
                 case(0):
+                    *difficulty = EASY;
                     return 4;
                     break;
                 //Medium random Game
                 case(1):
-                    generateRandomArray();
-                    return 0;
+                    *difficulty = MEDIUM;
+                    return 4;
                     break;
                 //Hard random Game
                 case(2):
-
+                    *difficulty = HARD;
                     return 4;
                     break;
                 //Exit Game

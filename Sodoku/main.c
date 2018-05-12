@@ -84,6 +84,7 @@ int main()
 //It's the MainLoop
 int gameloop(int loopvar, SF GameFields[9][9])
 {
+    int difficultyinrandomgame;
     int boolexit = 0;
     char path[260];
     while (boolexit != 1)
@@ -98,18 +99,18 @@ int gameloop(int loopvar, SF GameFields[9][9])
             break;
         case(2):
             //loopvar = cursorloop(GameFields);
-            loopvar = randomGameLoop();
+            loopvar = randomGameLoop(GameFields, &difficultyinrandomgame);
             break;
         case(3):
             loopvar = ChooserLoop(path);
             LoadMatchfieldFromFile(GameFields,path);
             break;
         case(4):
-            generateRandomArray();
-            randomGameGen(GameFields);
+            randomGameGen(GameFields, difficultyinrandomgame);
             loopvar = cursorloop(GameFields);
 
             break;
+
         //Random Game
         case(5):
             loopvar = cursorloop(GameFields);

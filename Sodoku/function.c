@@ -6,7 +6,7 @@
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
 
-int GenerateField(SF GameFields[9][9])
+int GenerateField(SF GameFields[9][9], int instruction)
 {
     //Clear Screen
     system("cls");
@@ -33,14 +33,14 @@ int GenerateField(SF GameFields[9][9])
 //            {
             //Setting the Color
             //The cursor is marked as RED and YELLOW on a not-editable number it is
-            //the other editable numbers are marked as GREEN and not editable as WHITE
+            //the other editable numbers are marked as GREEN and non-editable as WHITE
             if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 1)
             {
                 GameFields[j][i].Color = RED;
             }
             else if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 0)
             {
-                GameFields[j][i].Color = YELLOW;
+                GameFields[j][i].Color = GREEN;
             }
             else if(GameFields[j][i].Editable == 0)
             {
@@ -49,6 +49,12 @@ int GenerateField(SF GameFields[9][9])
             else
             {
                 GameFields[j][i].Color = CYAN;
+            }
+
+            //Debug
+            if(GameFields[j][i].Error == 1)
+            {
+                GameFields[j][i].Color = MAGENTA;
             }
             printcoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
 
@@ -70,7 +76,7 @@ int GenerateField(SF GameFields[9][9])
     BORDER;
 
     //Print Instructions
-    printInstructions(1);
+    printInstructions(instruction);
 
     return 0;
 }
@@ -141,18 +147,29 @@ int printInstructions(int menuorgame)
     if(menuorgame == 1)
     {
         printf("\n\n\n\n");
-        printf("KEYBINDINGS\n");
+        printf("COLOR Explanations\n");
+
+        printf("INSTRUCTIONS\n");
         printf("-------------------------------------------------------------\n");
         printf("SELECTION:\n");
         printf("UPARROW for UP, DOWNARROW for DOWN, LEFTARROW for LEFT and RIGHTARROW for RIGHT\n\n");
         printf("NUMBERS:\n");
-        printf("0-9 are the only viable Options for a number in this Sudoku!\n\n");
+        printf("0-9 are the only viable Options for a number in this Sodoku!\n\n");
         printf("OPTIONS:\n");
-        printf("SAVING with F5 and go back");
+        printf("SAVING with F5 and go back\n");
+        printf("Check with c!");
     }
-    else
+    else if(menuorgame == 3)
     {
-
+        printf("\n\n\n\n");
+        printf("CONGRATULATIONS!\n");
+        printf("The Sodoku is solved!\n");
+    }
+    else if(menuorgame == 4)
+    {
+        printf("\n\n\n\n");
+        printf("SORRY!\n");
+        printf("The Sodoku is not solved quite yet!\n");
     }
     return 0;
 }
