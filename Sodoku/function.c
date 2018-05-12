@@ -143,13 +143,22 @@ int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[])
 
 int printInstructions(int menuorgame)
 {
+
     //Print Game Instructions
     if(menuorgame == 1)
     {
-        printf("\n\n\n\n");
-        printf("COLOR Explanations\n");
 
-        printf("INSTRUCTIONS\n");
+        printf("\n\n\n\n");
+        printf("COLOR EXPLANATION:\n");
+        printf("WHITE are the first numbers that were given to solve the Puzzle. Therefore they aren't editable.\n");
+        setColour(BLUE);
+        printf("BLUE are the numbers, that have to be assigned by you. These are editable.\n");
+        setColour(RED);
+        printf("RED is the color of your cursor, when you are on editable number.\n");
+        setColour(GREEN);
+        printf("GREEN is the color of your cursor, when you are on a non-editable number.\n");
+        setColour(WHITE);
+        printf("\nINSTRUCTIONS\n");
         printf("-------------------------------------------------------------\n");
         printf("SELECTION:\n");
         printf("UPARROW for UP, DOWNARROW for DOWN, LEFTARROW for LEFT and RIGHTARROW for RIGHT\n\n");
@@ -158,6 +167,7 @@ int printInstructions(int menuorgame)
         printf("OPTIONS:\n");
         printf("SAVING with F5 and go back\n");
         printf("Check with c!");
+        printf("Hint with H");
     }
     else if(menuorgame == 3)
     {

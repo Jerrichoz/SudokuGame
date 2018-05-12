@@ -28,28 +28,25 @@ int sodokuSolver(SF NewMatchField[9][9])
     int column = 0;
     int num = 1;
 
-
-    if(findUnassigned(NewMatchField, &row, &column))
+    //if no unassigned number exists, the puzzle is solved
+    if(!findUnassigned(NewMatchField, &row, &column))
     {
         //Success
-        //printf("Solved!");
         return 1;
     }
-    //printf("Row: %i, Column: %i, Number: %i", column, row, num);
     for(num = 1; num <=  9; num++)
     {
         if(checkRowsAndColumnsAndBlock(NewMatchField, num, row, column, NewMatchField[row][column].Block))
         {
             //So far no problems, save the number
             NewMatchField[row][column].Number = num;
-            //printf("Row: %i, Column: %i, Number: %i", column, row, num);
+
             if(sodokuSolver(NewMatchField))
             {
                 //Success
-                //printf("Solved!");
                 return 1;
             }
-            //If a problem occurs, backtrack
+            //If a problem occurs
             NewMatchField[row][column].Number = 0;
         }
     }
@@ -137,11 +134,11 @@ int findUnassigned(SF NewMatchField[9][9], int *row, int *column)
         {
             if(NewMatchField[*row][*column].Number == 0)
             {
-                return 0;
+                return 1;
             }
         }
     }
-    return 1;
+    return 0;
 }
 int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block)
 {
