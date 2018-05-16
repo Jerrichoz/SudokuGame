@@ -4,6 +4,24 @@
 #include "header.h"
 #include <windows.h>
 
+// need to implement exit from the random menu
+
+/*
+Name:
+int randomGameLoop(SF GameFields[9][9], int *difficulty)
+Parameters:
+The Gamefield-Struct.
+The difficulty level of the random Game as an integer pointer, so the value can be passed on.
+Return Value:
+
+Function:
+Calls all the function needed to generate the sodoku-field:
+Generates an empty Sodoku field with the right properties.
+A random array which will be needed in the first 3 diagonal blocks,
+that can be filled without using backtracking, because they are independent.
+After that the solver generates the rest of the numbers with the backtracking method.
+Before setting the editability, the numbers according to the difficulty are removed.
+*/
 int randomGameLoop(SF GameFields[9][9], int *difficulty)
 {
     int menuPosition = 0;
