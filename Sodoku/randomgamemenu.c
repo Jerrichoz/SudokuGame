@@ -49,26 +49,25 @@ int randomGameLoop(SF GameFields[9][9], int *difficulty)
                 //Easy random Game
                 case(0):
                     *difficulty = EASY;
-                    return 4;
+                    return RNDGAME;
                     break;
                 //Medium random Game
                 case(1):
                     *difficulty = MEDIUM;
-                    return 4;
+                    return RNDGAME;
                     break;
                 //Hard random Game
                 case(2):
                     *difficulty = HARD;
-                    return 4;
-                    break;
-                //Exit Game
-                case(27):
-
+                    return RNDGAME;
                     break;
                 }
+            //Exit Game
+            case(27):
+                return EXTGAME;
+                break;
             }
             generateRandomGameMenu(menuPosition);
-
         }
 
     }
@@ -82,6 +81,7 @@ int generateRandomGameMenu(int position)
     easyRndGraphic(position);
     mediumRndGraphic(position);
     hardRndGraphic(position);
+    printInstructions(MENU);
     return 0;
 }
 int menuRndGraphic()

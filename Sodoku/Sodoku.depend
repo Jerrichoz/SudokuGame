@@ -399,9 +399,9 @@
 	"header.h"
 	<stdio.h>
 
-1526154469 c:\users\maksi\desktop\sudokugame-test\sodoku\header.h
+1526506710 c:\users\maksi\desktop\sudokugame-test\sodoku\header.h
 
-1526154992 source:c:\users\maksi\desktop\sudokugame-test\sodoku\cursormovement.c
+1526506371 source:c:\users\maksi\desktop\sudokugame-test\sodoku\cursormovement.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
@@ -415,26 +415,26 @@
 	<stdlib.h>
 	<windows.h>
 
-1526166655 source:c:\users\maksi\desktop\sudokugame-test\sodoku\function.c
+1526506356 source:c:\users\maksi\desktop\sudokugame-test\sodoku\function.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 	<dirent.h>
 
-1526137161 source:c:\users\maksi\desktop\sudokugame-test\sodoku\main.c
+1526505789 source:c:\users\maksi\desktop\sudokugame-test\sodoku\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	"header.h"
 	<windows.h>
 
-1525799351 source:c:\users\maksi\desktop\sudokugame-test\sodoku\mainmenu.c
+1526506579 source:c:\users\maksi\desktop\sudokugame-test\sodoku\mainmenu.c
 	<windows.h>
 	"header.h"
 	<stdio.h>
 	<conio.h>
 
-1526499540 source:c:\users\maksi\desktop\sudokugame-test\sodoku\randomgamegenerator.c
+1526505395 source:c:\users\maksi\desktop\sudokugame-test\sodoku\randomgamegenerator.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -442,7 +442,7 @@
 	<windows.h>
 	<time.h>
 
-1526498953 source:c:\users\maksi\desktop\sudokugame-test\sodoku\randomgamemenu.c
+1526505295 source:c:\users\maksi\desktop\sudokugame-test\sodoku\randomgamemenu.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -453,4 +453,11 @@
 	<windows.h>
 	"header.h"
 	<stdio.h>
+
+1526506484 source:c:\users\maksi\desktop\sudokugame-test\sodoku\instructions.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
 

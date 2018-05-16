@@ -38,8 +38,6 @@ The second Parameter is a the Path for the File, which should be read out.
 */
 int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
 
-//The parameter decides which instructions should be printed; GAME = 1 and  MENU = 2
-int printInstructions(int menuorgame);
 
 /*This Function looks in the path (parameter path) and writes all the Files in the directory into a List (parameter NameList).
 In the parameter NumberOfListMember will be written, how many Files are found in the directory.
@@ -200,6 +198,14 @@ int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, 
 int generateRandomArray();
 // // randomgameGenerator.c -End
 
+// // instruction.c -Start
+//The parameter decides which instructions should be printed; GAME = 1 and  MENU = 2
+int printInstructions(int menuorgame);
+int moveInstructionGame();
+int moveInstructionMenu();
+int gameInstruction();
+int escInstruction();
+// // instruction.c -End
 
 // // Constants
 // Colors
@@ -229,5 +235,18 @@ int generateRandomArray();
 #define MENU 2
 #define SOLVED 3
 #define NOTSOLVED 4
+#define MNMENU 5
+
+// Loops
+#define MAINMENU 1
+#define CURSORLOOP 2
+#define STRTGAME 3
+#define RNDGAME 4
+#define RNDGAMEMENU 5
+#define EXTGAME 6
+
+//Border-Constant
+#define BORDER printf("+-------+-------+-------+\n")
+#define FOOTERBORDER printf("-------------------------------------------------------------\n");
 
 

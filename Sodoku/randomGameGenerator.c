@@ -28,7 +28,7 @@ int randomGameGen(SF NewMatchField[9][9], int difficulty)
     sodokuSolver(NewMatchField);
     numberRemover(NewMatchField, difficulty);
     setSodokuEditabilty(NewMatchField);
-    return 0;
+    return CURSORLOOP;
 }
 
 /*
@@ -492,4 +492,57 @@ int checkIfSolved(SF GameFields[9][9])
     }
 //Sodoku is solved!
     return SOLVED;
+}
+
+int SetBlockForField(int xCoordinate, int yCoordinate)
+{
+    //First three columns (zero to three)
+    if((xCoordinate >= 0) && (xCoordinate <= 2))
+    {
+        if((yCoordinate >= 0) && (yCoordinate <= 2))
+        {
+            return 1;
+        }
+        if((yCoordinate >= 3) && (yCoordinate <= 5))
+        {
+            return 2;
+        }
+        if((yCoordinate >= 6) && (yCoordinate <= 8))
+        {
+            return 3;
+        }
+    }
+    //columns three to five
+    if((xCoordinate >= 3) && (xCoordinate <= 5))
+    {
+        if((yCoordinate >= 0) && (yCoordinate <= 2))
+        {
+            return 4;
+        }
+        if((yCoordinate >=3) && (yCoordinate <= 5))
+        {
+            return 5;
+        }
+        if((yCoordinate >= 6) && (yCoordinate <= 8))
+        {
+            return 6;
+        }
+    }
+    //columns six to eight
+    if((xCoordinate >= 6) && (xCoordinate <= 8))
+    {
+        if((yCoordinate >= 0) && (yCoordinate <= 2))
+        {
+            return 7;
+        }
+        if((yCoordinate >= 3) && (yCoordinate <= 5))
+        {
+            return 8;
+        }
+        if((yCoordinate >= 6) && (yCoordinate <= 8))
+        {
+            return 9;
+        }
+    }
+    return 0;
 }

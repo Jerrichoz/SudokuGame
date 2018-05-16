@@ -30,18 +30,18 @@ int menuLoop()
                 {
                     //Start Game
                 case(0):
-                    return 3;
+                    return STRTGAME;
                     break;
                     //Start random Game
                 case(1):
-                    return 2;
+                    return RNDGAMEMENU;
                     break;
                     //Load Game
                 case(2):
                     break;
                     //Exit Game
                 case(3):
-                    return 4;
+                    return EXTGAME;
                     break;
                 }
             }
@@ -61,6 +61,7 @@ int generateMenu(int position)
     startRandomGameGraphic(position);
     loadGameGraphic(position);
     exitGraphic(position);
+    printInstructions(MNMENU);
     return 0;
 }
 

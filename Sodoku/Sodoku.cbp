@@ -44,6 +44,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="header.h" />
+		<Unit filename="instructions.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
