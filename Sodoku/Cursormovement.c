@@ -73,7 +73,7 @@ int cursorloop(SF GameFields[9][9])
                 break;
             //Hint h
             case(104):
-                if(!findUnassigned(GameFields, &row, &column))
+                if(findUnassigned(GameFields, &row, &column))
                 {
                 GameFields[row][column].Number = GameFields[row][column].Hint;
                 }

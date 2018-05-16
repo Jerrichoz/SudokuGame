@@ -69,21 +69,7 @@ int sodokuSolver(SF NewMatchField[9][9])
     {
         //Success
         return 1;
-    }/*
-Name:
-int randomGameGen(SF NewMatchField[9][9], int difficulty)
-Parameters:
-The Gamefield-Struct, the difficulty level of the random Game as an int
-Return Value:
-Zero returns a 0 for zero problems, no further use.
-Function:
-Calls all the function needed to generate the sodoku-field:
-Generates an empty Sodoku field with the right properties.
-A random array which will be needed in the first 3 diagonal blocks,
-that can be filled without using backtracking, because they are independent.
-After that the solver generates the rest of the numbers with the backtracking method.
-Before setting the editability, the numbers according to the difficulty are removed.
-*/
+    }
     for(num = 1; num <=  9; num++)
     {
         //if number is valid continue
