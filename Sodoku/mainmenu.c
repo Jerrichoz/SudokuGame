@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-
+//The second loop we are in
 int menuLoop()
 {
     int menuPosition = 0;
@@ -14,9 +14,9 @@ int menuLoop()
     {
 
 
-        if(kbhit()) // Nur wenn auch eine Taste gedrückt ist
+        if(kbhit()) // Only if a key is hit
         {
-            char c = getch(); // Muss auf keine Eingabe warten, Taste ist bereits gedrückt
+            char c = getch(); // get Value for the key, that has been hit
             switch(c)
             {
             //Movement
@@ -30,18 +30,19 @@ int menuLoop()
                 {
                     //Start Game
                 case(0):
-                    return 3;
+                    return STRTGAME;
                     break;
                     //Start random Game
                 case(1):
-                    return 2;
+                    return RNDGAMEMENU;
                     break;
                     //Load Game
                 case(2):
+                    return LOADGAME;
                     break;
                     //Exit Game
                 case(3):
-                    return 4;
+                    return EXTGAME;
                     break;
                 }
             }
@@ -61,6 +62,7 @@ int generateMenu(int position)
     startRandomGameGraphic(position);
     loadGameGraphic(position);
     exitGraphic(position);
+    printInstructions(MNMENU);
     return 0;
 }
 

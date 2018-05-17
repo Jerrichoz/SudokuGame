@@ -14,21 +14,19 @@ typedef struct SodokuField
     int Color;
     int Selected;
     int Block;
+    int Error;
+    int Hint;
 } SF;
 
 // This function is in main --> needs to be changed
 int gameloop(int loopvar, SF GameFields[9][9]);
 
-
-
-
-// // function.c -Start //rename the file
 /*
 The Function displays the matchfield of the Current Game.
 The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
 COMMENT NEED MAX
 */
-int GenerateField(SF GameFields[9][9]);
+int GenerateField(SF GameFields[9][9], int instruction);
 
 /*
 This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField.
@@ -36,22 +34,11 @@ The second Parameter is a the Path for the File, which should be read out.
 */
 int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
 
-//The parameter decides which instructions should be printed; GAME = 1 and  MENU = 2
-int printInstructions(int menuorgame);
-
-/*This Function looks in the path (parameter path) and writes all the Files in the directory into a List (parameter NameList).
-In the parameter NumberOfListMember will be written, how many Files are found in the directory.
-weder path noch NomberOfListMember funktionieren
-COMMENT NEED JAN
-*/
-int GetDirectoryList(char NameList[100][512], char path[],int *NumberOfListMember);
-
 /*
 COMMENT NEED JAN
 */
 int SetBlockForField(int xCoordinate, int yCoordinate);
 
-// // function.c -End
 
 
 
@@ -77,7 +64,7 @@ int printcoloredNR(int number, int color);
 /*
 COMMENTS NEED MAX- the ingame loop
 */
-int cursorloop(SF GameFields[9][9]);
+int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInMS);
 
 /*
 Moves in the array through keypads (Uparrow, Downarrow, Leftarrow, Rightarrow)
@@ -147,7 +134,7 @@ int GenerateChooserList(char NameList[100][512], int NumberOfListMember,int Choo
 /*
 COMMENTS NEED JAN
 */
-int ChooserLoop(char path[]);
+int ChooserLoop(char MatchName[],char path[], int CreateNewFile);
 // // FileChooser.c -End
 
 
@@ -158,7 +145,7 @@ int ChooserLoop(char path[]);
 /*
 generates the random game menu loop
 */
-int randomGameLoop();
+int randomGameLoop(SF GameFields[9][9], int *difficulty);
 
 /*
 Builds the random game menu
@@ -174,6 +161,49 @@ int mediumRndGraphic(int selected);
 int hardRndGraphic(int selected);
 
 // // randomgamemenu.c -End
+
+
+
+// // randomgameGenerator.c -Start
+//Array
+int rndarray[9][3];
+int randomGameGen(SF NewMatchField[9][9], int difficulty);
+
+int sodokuSolver(SF NewMatchField[9][9]);
+
+int findUnassigned(SF NewMatchField[9][9], int *row, int *column);
+
+int numberRemover(SF NewMatchField[9][9], int difficulty);
+int setSodokuEditabilty(SF NewMatchField[9][9]);
+
+int checkIfSolved(SF GameFields[9][9]);
+
+int genEmptySodoku(SF NewMatchField[9][9]);
+int genThreeIndependentBlocks(SF NewMatchField[9][9]);
+int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block);
+// Generates a random array with the numbers 0-9, so filling blocks becomes very easy
+int generateRandomArray();
+// // randomgameGenerator.c -End
+
+// // instruction.c -Start
+//The parameter decides which instructions should be printed; GAME = 1 and  MENU = 2
+int printInstructions(int menuorgame);
+int moveInstructionGame();
+int moveInstructionMenu();
+int gameInstruction();
+int escInstruction();
+// // instruction.c -End
+
+int saveGame(SF MatchField[9][9],int passedTimeInMS);
+/*This Function looks in the path (parameter path) and writes all the Files in the directory into a List (parameter NameList).
+In the parameter NumberOfListMember will be written, how many Files are found in the directory.
+COMMENT NEED JAN
+*/
+int GetDirectoryList(char NameList[100][512], char path[], int *NumberOfListMember, int CreateNewFile);
+
+int loadGameFromFile(char MatchName[512], SF MatchField[9][9], char path[1024], int *passedTimeInMS);
+
+int GetSelectedField(SF MatchField[9][9], int Coordinate[2]);
 
 
 // // Constants
@@ -194,6 +224,30 @@ int hardRndGraphic(int selected);
 #define YELLOW 14
 #define WHITE 15
 
+//  Diffuculty Levels
+#define HARD 50
+#define MEDIUM 40
+#define EASY 30
 
+// Instruction Menu
+#define GAME 1
+#define MENU 2
+#define SOLVED 3
+#define NOTSOLVED 4
+#define MNMENU 5
+#define FILECHOOSER 6
+
+// Loops
+#define MAINMENU 1
+#define CURSORLOOP 2
+#define STRTGAME 3
+#define RNDGAME 4
+#define RNDGAMEMENU 5
+#define EXTGAME 6
+#define LOADGAME 7
+
+//Border-Constant
+#define BORDER printf("+-------+-------+-------+\n")
+#define FOOTERBORDER printf("-------------------------------------------------------------\n");
 
 
