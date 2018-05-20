@@ -1,13 +1,13 @@
 /*
-A SodokuField is a struct, which represents a Sodoku Field.
-A SodokuField has a Number and several properties:
+A SudokuField is a struct, which represents a Sudoku Field.
+A SudokuField has a Number and several properties:
     Editable - shows, if the field is editable (1=True 0=False)
     Color - represents the color as an Integer.
     The function SetConsoleTextAttribute from <windows.h> defines which number belongs to the color.
 If The Number is 0, then the Field is treated as Empty
 */
 //The struct is defined as SF
-typedef struct SodokuField
+typedef struct SudokuField
 {
     int Number;
     int Editable;
@@ -16,197 +16,90 @@ typedef struct SodokuField
     int Block;
     int Error;
     int Hint;
+    int Backup;
 } SF;
 
-// This function is in main --> needs to be changed
-int gameloop(int loopvar, SF GameFields[9][9]);
-
-/*
-The Function displays the matchfield of the Current Game.
-The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
-COMMENT NEED MAX
-*/
-int GenerateField(SF GameFields[9][9], int instruction);
-
-/*
-This Function loads one matchfield File. The matchfield is loaded into the parameter NewMatchField.
-The second Parameter is a the Path for the File, which should be read out.
-*/
-int LoadMatchfieldFromFile(SF NewMatchField[9][9],char Path[]);
-
-/*
-COMMENT NEED JAN
-*/
-int SetBlockForField(int xCoordinate, int yCoordinate);
-
-
-
-
+// //main.c -Start
+int gameloop();
+// //main.c -End
 
 // // Colour.c -Start
-
-//Sets the textcolor, the parameter decides the color, defines for the colors are below
-int setColour(int colour);
-//Get the textcolor
-int getColour();
-/*
-Prints the number in the colornumber, which is given through the parameters.
-The previous color will still be set afterwards.
-*/
-int printcoloredNR(int number, int color);
-
+int setColor(int color);
+int getColor();
+int printColoredNR(int number, int color);
 // // Colour.c -End
 
-
-
-
 // // Cursormovement.c -Start
-/*
-COMMENTS NEED MAX- the ingame loop
-*/
-int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInMS);
-
-/*
-Moves in the array through keypads (Uparrow, Downarrow, Leftarrow, Rightarrow)
-*/
+int cursorloop(SF gameFields[9][9],char gameName[512],int *passedTimeInS);
 int movearrow(int *x,int *y,int direction);
-
-/*
-Gots called in cursorloop and basiclly set the number in the field, which is currently selected.
-Necessary parameters, is the matchfield array struct, the number to set in and the coordinates to set it in.
-*/
-int setNumber(SF GameFields[9][9],int number, int x, int y);
-
+int setNumber(SF gameFields[9][9],int number, int x, int y);
+int generateField(SF gameFields[9][9], int instruction, int passedTimeInSeconds, char matchName[512]);
 // // Cursormovement.c -End
 
-
-
-
 // // mainmenu.c -Start
-
-/*
-The loop of the menu, enables to switch between the menu options
-*/
 int menuLoop();
-
-/*
-Generates the menu graphics and the logic
-*/
 int generateMenu(int position);
-
-/*
-Enables the movement in the mainmenu
-*/
 int movemenuPosition(int *x, int direction, int maxMenuLength);
-
-/*Each Graphic Function loads a graphic for the menu.
-The parameter selected, decides if the current graphic is selected and
-changes the color accordingly.
-*/
 int menuGraphic();
 int startGameGraphic(int selected);
 int startRandomGameGraphic(int selected);
 int loadGameGraphic(int selected);
 int exitGraphic(int selected);
-
 // // mainmenu.c -End
 
-
-
-
 // // windowsettings.c -Start
-
-// Sets the appropriate Console Window Settings
 int consolewindowsettings();
-
 // // windowsettings.c -End
 
-
-
-
 // // FileChooser.c -Start
-
-/*
-COMMENTS NEED JAN
-*/
-int GenerateChooserList(char NameList[100][512], int NumberOfListMember,int ChooserPosition);
-
-/*
-COMMENTS NEED JAN
-*/
-int ChooserLoop(char MatchName[],char path[], int CreateNewFile);
+int generateChooserList(char nameList[100][512], int numberOfListMember,int chooserPosition);
+int chooserLoop(char matchName[],char path[], int createNewFile);
+int getDirectoryList(char nameList[100][512], char path[], int *numberOfListMember, int createNewFile);
 // // FileChooser.c -End
 
-
-
-
 // // randomgamemenu.c -Start
-
-/*
-generates the random game menu loop
-*/
-int randomGameLoop(SF GameFields[9][9], int *difficulty);
-
-/*
-Builds the random game menu
-*/
+int randomGameLoop(int *difficulty);
 int generateRandomGameMenu(int position);
-
-/*
-Random Game Menu Graphics
-*/
 int menuRndGraphic();
 int easyRndGraphic(int selected);
 int mediumRndGraphic(int selected);
 int hardRndGraphic(int selected);
-
 // // randomgamemenu.c -End
 
-
-
 // // randomgameGenerator.c -Start
-//Array
 int rndarray[9][3];
-int randomGameGen(SF NewMatchField[9][9], int difficulty);
-
-int sodokuSolver(SF NewMatchField[9][9]);
-
-int findUnassigned(SF NewMatchField[9][9], int *row, int *column);
-
-int numberRemover(SF NewMatchField[9][9], int difficulty);
-int setSodokuEditabilty(SF NewMatchField[9][9]);
-
-int checkIfSolved(SF GameFields[9][9]);
-
-int genEmptySodoku(SF NewMatchField[9][9]);
-int genThreeIndependentBlocks(SF NewMatchField[9][9]);
-int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block);
-// Generates a random array with the numbers 0-9, so filling blocks becomes very easy
+int hintSolver(SF NewMatchField[9][9]);
+int randomGameGen(SF newGameField[9][9], int difficulty);
+int sodokuSolver(SF newGameField[9][9]);
+int findUnassigned(SF newGameField[9][9], int *row, int *column);
+int numberRemover(SF newGameField[9][9], int difficulty);
+int setSodokuEditabilty(SF newGameField[9][9]);
+int checkIfSolved(SF gameFields[9][9]);
+int genEmptySodoku(SF newGameField[9][9]);
+int genThreeIndependentBlocks(SF newGameField[9][9]);
+int checkRowsAndColumnsAndBlock(SF newGameField[9][9],int testnumber, int row, int column, int block);
 int generateRandomArray();
+int setBlockForField(int xCoordinate, int yCoordinate);
 // // randomgameGenerator.c -End
 
 // // instruction.c -Start
-//The parameter decides which instructions should be printed; GAME = 1 and  MENU = 2
-int printInstructions(int menuorgame);
+int printInstructions(int footer);
 int moveInstructionGame();
 int moveInstructionMenu();
 int gameInstruction();
 int escInstruction();
+int printNameAndTime(char matchName[512],int passedTimeInSeconds);
 // // instruction.c -End
 
-int saveGame(SF MatchField[9][9],int passedTimeInMS);
-/*This Function looks in the path (parameter path) and writes all the Files in the directory into a List (parameter NameList).
-In the parameter NumberOfListMember will be written, how many Files are found in the directory.
-COMMENT NEED JAN
-*/
-int GetDirectoryList(char NameList[100][512], char path[], int *NumberOfListMember, int CreateNewFile);
+// // SaveGame.c -Start
+int saveGame(SF gameField[9][9],int passedTimeInSeconds);
+// // SaveGame.c -End
 
-int loadGameFromFile(char MatchName[512], SF MatchField[9][9], char path[1024], int *passedTimeInMS);
+// // LoadGame.c -Start
+int loadGameFromFile(char matchName[512], SF gameField[9][9], char path[1024], int *passedTimeInSeconds);
+// // LoadGame.c -End
 
-int GetSelectedField(SF MatchField[9][9], int Coordinate[2]);
-
-
-// // Constants
+// // Constants -Start
 // Colors
 #define BLUE 1
 #define GREEN 2
@@ -249,5 +142,5 @@ int GetSelectedField(SF MatchField[9][9], int Coordinate[2]);
 //Border-Constant
 #define BORDER printf("+-------+-------+-------+\n")
 #define FOOTERBORDER printf("-------------------------------------------------------------\n");
-
+// // Constants -End
 

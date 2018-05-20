@@ -25,17 +25,20 @@ The different colour codes are
 */
 
 //Source https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
-
-//Gets and Sets the color
-int setColour(int colour)
+/*
+Sets the textcolor, the parameter decides the color, defines for the colors are below
+*/
+int setColor(int color)
 {
 
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colour);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 
 return 0;
 }
-
-int getColour()
+/*
+Get the textcolor
+*/
+int getColor()
 {
 
     CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -48,13 +51,16 @@ int getColour()
 
 }
 
-
-int printcoloredNR (int number, int color)
+/*
+Prints the number in the colornumber, which is given through the parameters.
+The previous color will still be set afterwards.
+*/
+int printColoredNR (int number, int color)
 {
-    int tempcolor = getColour();
-    setColour(color);
+    int tempColor = getColor();
+    setColor(color);
     printf(" %i", number);
-    setColour(tempcolor);
+    setColor(tempColor);
 
     return 0;
 }

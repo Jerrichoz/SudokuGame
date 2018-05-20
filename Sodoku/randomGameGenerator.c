@@ -33,6 +33,41 @@ int randomGameGen(SF NewMatchField[9][9], int difficulty)
 
 /*
 Name:
+int hintSolver(SF NewMatchField[9][9])
+Parameters:
+The Gamefield-Struct
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+First doubleloop saves all numbers in the backup property of the struct.
+After that the sodoku is solved completely.
+Second doubleloop saves all numbers in the hint property
+and restores through the backup property the sodoku as it was before.
+*/
+int hintSolver(SF NewMatchField[9][9])
+{
+    int i,j;
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            NewMatchField[i][j].Backup = NewMatchField[i][j].Number;
+        }
+    }
+    sodokuSolver(NewMatchField);
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            NewMatchField[i][j].Hint = NewMatchField[i][j].Number;
+            NewMatchField[i][j].Number = NewMatchField[i][j].Backup;
+        }
+    }
+    return 0;
+}
+
+/*
+Name:
 int sodokuSolver(SF NewMatchField[9][9])
 Parameters:
 The Gamefield-Struct
@@ -55,6 +90,7 @@ After the number is getting reset and the backtrack starts, reseting all the sel
 Source:
 https://www.geeksforgeeks.org/backtracking-set-7-suduku/
 */
+
 int sodokuSolver(SF NewMatchField[9][9])
 {
     // //Variables
@@ -63,7 +99,7 @@ int sodokuSolver(SF NewMatchField[9][9])
     int column = 0;
     int num = 1;
 
-    //if no unassigned number exists, the puzzle is solved
+    //if no unassigned number exists, the puzzle is solvedZero returns a 0 for zero problems, no further use.
     //row and column are given as a pointerparameters, so they can be used later
     if(!findUnassigned(NewMatchField, &row, &column))
     {
@@ -85,6 +121,7 @@ int sodokuSolver(SF NewMatchField[9][9])
             }
             //If a problem occurs
             NewMatchField[row][column].Number = 0;
+
         }
     }
     //Backtrack!
@@ -117,6 +154,8 @@ int genEmptySodoku(SF NewMatchField[9][9])
             NewMatchField[i][j].Editable = 1;
             NewMatchField[i][j].Error = 0;
             NewMatchField[i][j].Selected = 0;
+            NewMatchField[i][j].Hint = 0;
+            NewMatchField[i][j].Backup = 0;
         }
     }
     return 0;
@@ -365,11 +404,9 @@ Return Value:
 Zero returns a 0 for zero problems, no further use.
 Function:
 Pretty simple, a random row and column is choosen.
-If the number there isn't 0 already, it is saved in the hint property(for later hint use).
-Afterwards set to 0 and the difficulty is decreased by 1.
-So difficulty defines the amount of numbers which are removed.
-Creating a more difficult Sodoku, with a higher difficulty integer value.
-Lottozahlen-Projekt(in Moodle)
+Afterwards the number is set to 0 and the difficulty is decreased by 1.
+So the difficulty-parameter defines the amount of numbers which are removed.
+Creating a more difficult Sodoku, with a higher integer value.
 */
 int numberRemover(SF NewMatchField[9][9], int difficulty)
 {
@@ -387,7 +424,6 @@ int numberRemover(SF NewMatchField[9][9], int difficulty)
         columnnumber = rand()%9;
         if(NewMatchField[rownumber][columnnumber].Number != 0)
         {
-            NewMatchField[rownumber][columnnumber].Hint = NewMatchField[rownumber][columnnumber].Number;
             NewMatchField[rownumber][columnnumber].Number = 0;
             difficulty--;
         }

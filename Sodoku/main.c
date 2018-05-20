@@ -9,30 +9,24 @@ int main()
     //Load Window Settings
     consolewindowsettings();
 
-    //Loopvariable starting in MainMenu
-    int loopvar = 1;
-
-    //first struct definition
-    struct SodokuField gamefield[9][9];
-
-    LoadMatchfieldFromFile(gamefield,"C:\\Users\\Jan\\Desktop\\Sodoku\\matchfields.txt");
-
     //Initiliaze the game starting the gameloop
-    gameloop(loopvar, gamefield);
+    gameloop();
 
     printf("Spiel ist beendet!");
     return 0;
 }
 
 //It's the MainLoop
-int gameloop(int loopvar, SF GameFields[9][9])
+int gameloop()
 {
-    int difficultyinrandomgame;
+    SF gameFields[9][9];
+    int loopvar = 1;
+    int difficultyInRandomgame;
     int boolexit = 0;
     char pathForNewGames[1024];
     char pathForSaveGames[1024];
     int passedTimeInSeconds = 0.0;
-    char GameName[512] = "";
+    char matchName[512] = "";
     while (boolexit != 1)
     {
         strcpy(pathForSaveGames,"./savegames/");
@@ -46,19 +40,19 @@ int gameloop(int loopvar, SF GameFields[9][9])
             loopvar = menuLoop();
             break;
         case(CURSORLOOP):
-            loopvar = cursorloop(GameFields,GameName,&passedTimeInSeconds);
+            loopvar = cursorloop(gameFields,matchName,&passedTimeInSeconds);
             break;
         case(STRTGAME):
-            loopvar = loadGameFromFile(GameName,GameFields,pathForNewGames,&passedTimeInSeconds);
+            loopvar = loadGameFromFile(matchName,gameFields,pathForNewGames,&passedTimeInSeconds);
             break;
         case(RNDGAME):
-            loopvar = randomGameGen(GameFields, difficultyinrandomgame);
+            loopvar = randomGameGen(gameFields, difficultyInRandomgame);
             break;
         case(RNDGAMEMENU):
-            loopvar = randomGameLoop(GameFields, &difficultyinrandomgame);
+            loopvar = randomGameLoop(&difficultyInRandomgame);
             break;
         case(LOADGAME):
-            loopvar = loadGameFromFile(GameName,GameFields,pathForSaveGames,&passedTimeInSeconds);
+            loopvar = loadGameFromFile(matchName,gameFields,pathForSaveGames,&passedTimeInSeconds);
             break;
         //EXIT GAME
         case(EXTGAME):

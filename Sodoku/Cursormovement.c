@@ -5,7 +5,7 @@
 #include <time.h>
 
 
-int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInSeconds)
+int cursorloop(SF gameFields[9][9],char matchName[512],int *passedTimeInSeconds)
 {
     time_t startTime;
     time_t endTime;
@@ -17,7 +17,7 @@ int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInSeconds)
     //setting the current position
     int arrayx = 4;
     int arrayy = 4;
-    GameFields[arrayx][arrayy].Selected = 1;
+    gameFields[arrayx][arrayy].Selected = 1;
 
     //Variables for saving the last position
     int oldarrayx = 4;
@@ -25,7 +25,7 @@ int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInSeconds)
 
     int row,column;
 // First Generation of Field
-    GenerateField(GameFields, instructionmenu);
+    generateField(gameFields, instructionmenu,*passedTimeInSeconds,matchName);
 
     //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
     //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
@@ -52,7 +52,7 @@ int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInSeconds)
             case(75):
             case(77):
                 movearrow(&arrayx, &arrayy, c);
-                GameFields[oldarrayx][oldarrayy].Selected = 0;
+                gameFields[oldarrayx][oldarrayy].Selected = 0;
                 break;
             //Numbers
             case(48):
@@ -65,37 +65,38 @@ int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInSeconds)
             case(55):
             case(56):
             case(57):
-                setNumber(GameFields, c, arrayx, arrayy);
+                setNumber(gameFields, c, arrayx, arrayy);
                 break;
             // //Functions
             //Escape esc
             case(27):
-                GameFields[arrayx][arrayy].Selected = 0;
+                gameFields[arrayx][arrayy].Selected = 0;
                 return 1;
                 break;
             //Check c
             case(99):
-                instructionmenu = checkIfSolved(GameFields);
+                instructionmenu = checkIfSolved(gameFields);
                 break;
             //Hint h
             case(104):
-                if(findUnassigned(GameFields, &row, &column))
+                if(findUnassigned(gameFields, &row, &column))
                 {
-                GameFields[row][column].Number = GameFields[row][column].Hint;
+                gameFields[row][column].Number = gameFields[row][column].Hint;
                 }
                 break;
             //s-key pressed
             case(115):
                 time(&endTime);
-                saveGame(GameFields,(endTime - startTime));
+                saveGame(gameFields,(endTime - startTime));
                 break;
             }
 
             //Set as Selected
-            GameFields[arrayx][arrayy].Selected = 1;
+            gameFields[arrayx][arrayy].Selected = 1;
 
             //Generate the field
-            GenerateField(GameFields, instructionmenu);
+            time(&endTime);
+            generateField(gameFields, instructionmenu,(endTime - startTime),matchName);
 
 
 
@@ -104,8 +105,9 @@ int cursorloop(SF GameFields[9][9],char GameName[512],int *passedTimeInSeconds)
     }
     return 0;
 }
-
-// Moves in a two-dimensional environement accordingly to the third parameter
+/*
+Moves in the array through keypads (Uparrow, Downarrow, Leftarrow, Rightarrow)
+*/
 int movearrow(int *x, int *y, int direction)
 {
     switch(direction)
@@ -146,8 +148,12 @@ int movearrow(int *x, int *y, int direction)
     }
     return 1;
 }
-
-int GenerateField(SF GameFields[9][9], int instruction)
+/*
+The Function displays the matchfield of the Current Game.
+The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
+COMMENT NEED MAX
+*/
+int generateField(SF gameFields[9][9], int instruction, int passedTimeInSeconds, char matchName[512])
 {
     //Clear Screen
     system("cls");
@@ -165,41 +171,34 @@ int GenerateField(SF GameFields[9][9], int instruction)
         //Loop for the rows
         for(j = 0; j <= 8; j++)
         {
-            //"." Should be displayed instead of 0
-//            if (GameFields[j][i].Number == 0)
-//            {
-//                printf(" .");
-//            }
-//            else
-//            {
+
             //Setting the Color
             //The cursor is marked as RED and YELLOW on a not-editable number it is
             //the other editable numbers are marked as GREEN and non-editable as WHITE
-            if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 1)
+            if(gameFields[j][i].Selected == 1 && gameFields[j][i].Editable == 1)
             {
-                GameFields[j][i].Color = RED;
+                gameFields[j][i].Color = RED;
             }
-            else if(GameFields[j][i].Selected == 1 && GameFields[j][i].Editable == 0)
+            else if(gameFields[j][i].Selected == 1 && gameFields[j][i].Editable == 0)
             {
-                GameFields[j][i].Color = GREEN;
+                gameFields[j][i].Color = GREEN;
             }
-            else if(GameFields[j][i].Editable == 0)
+            else if(gameFields[j][i].Editable == 0)
             {
-                GameFields[j][i].Color = WHITE;
+                gameFields[j][i].Color = WHITE;
             }
             else
             {
-                GameFields[j][i].Color = CYAN;
+                gameFields[j][i].Color = CYAN;
             }
 
             //Debug
-            if(GameFields[j][i].Error == 1)
+            if(gameFields[j][i].Error == 1)
             {
-                GameFields[j][i].Color = MAGENTA;
+                gameFields[j][i].Color = MAGENTA;
             }
-            printcoloredNR(GameFields[j][i].Number, GameFields[j][i].Color);
+            printColoredNR(gameFields[j][i].Number, gameFields[j][i].Color);
 
-//            }
             //Formating for Layout
             if((j==2)||(j==5))
             {
@@ -216,15 +215,21 @@ int GenerateField(SF GameFields[9][9], int instruction)
     //Lower Border
     BORDER;
 
+	//Hint validation after every generation
+    hintSolver(gameFields);
+
     //Print Instructions
     printInstructions(instruction);
-
+    printNameAndTime(matchName,passedTimeInSeconds);
     return 0;
 }
-
-int setNumber(SF GameFields[9][9],int number, int x, int y)
+/*
+Gots called in cursorloop and basiclly set the number in the field, which is currently selected.
+Necessary parameters, is the matchfield array struct, the number to set in and the coordinates to set it in.
+*/
+int setNumber(SF gameFields[9][9],int number, int x, int y)
 {
-    if(GameFields[x][y].Editable == 1)
+    if(gameFields[x][y].Editable == 1)
     {
 
 
@@ -232,49 +237,45 @@ int setNumber(SF GameFields[9][9],int number, int x, int y)
         {
         // Number: 0
         case(48):
-            GameFields[x][y].Number = 0;
+            gameFields[x][y].Number = 0;
             break;
         // Number: 1
         case(49):
-            GameFields[x][y].Number = 1;
+            gameFields[x][y].Number = 1;
             break;
         // Number: 2
         case(50):
-            GameFields[x][y].Number = 2;
+            gameFields[x][y].Number = 2;
             break;
         // Number: 3
         case(51):
-            GameFields[x][y].Number = 3;
+            gameFields[x][y].Number = 3;
             break;
         // Number: 4
         case(52):
-            GameFields[x][y].Number = 4;
+            gameFields[x][y].Number = 4;
             break;
         // Number: 5
         case(53):
-            GameFields[x][y].Number = 5;
+            gameFields[x][y].Number = 5;
             break;
         // Number: 6
         case(54):
-            GameFields[x][y].Number = 6;
+            gameFields[x][y].Number = 6;
             break;
         // Number: 7
         case(55):
-            GameFields[x][y].Number = 7;
+            gameFields[x][y].Number = 7;
             break;
         // Number: 8
         case(56):
-            GameFields[x][y].Number = 8;
+            gameFields[x][y].Number = 8;
             break;
         // Number: 9
         case(57):
-            GameFields[x][y].Number = 9;
+            gameFields[x][y].Number = 9;
             break;
         }
-    }
-    else
-    {
-        return 1;
     }
     return 1;
 }

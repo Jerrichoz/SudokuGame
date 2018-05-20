@@ -40,7 +40,10 @@
 		<Unit filename="FileChooser.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="function.c">
+		<Unit filename="LoadGame.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="SaveGame.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="header.h" />
