@@ -46,20 +46,23 @@
 		<Unit filename="SaveGame.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="function.c">
+		<Unit filename="header.h" />
+		<Unit filename="instructions.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="header.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mainmenu.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="windowsettings.c">
+		<Unit filename="randomGameGenerator.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="wirdgelöscht.c">
+		<Unit filename="randomgamemenu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="windowsettings.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

@@ -1,7 +1,7 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
-
+// Sets the appropriate Console Window Settings
 //Quelle    https://forum.chip.de/discussion/1560510/console-size-veraendern
 //          https://docs.microsoft.com/en-us/windows/console/setconsolewindowinfo
 int consolewindowsettings()
