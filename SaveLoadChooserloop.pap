@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="79D8C688B7D1B500">
+  <PROJECT FORMAT="1.00" NAME="Save/Load" AUTHOR="Jan" CREATED="2018.05.20 14:11:19" MODIFIED="2018.05.20 15:37:54">
+    <DIAGRAMS>
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Save" CREATED="2018.05.20 14:11:31" MODIFIED="2018.05.20 15:37:54">
+        <LAYOUT FORMAT="1.00" COLUMNS="3" ROWS="17">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[Save]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="2">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Parameter:
+Struct SudokuField gameField[9][9],
+integer passedTimeInSeconds]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[Variablen deklarieren und initialisieren:
+integer i,j,escaped
+strings path="./savegames/",input,compstring="New File"]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="4">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[escaped = chooserloop(input,path,TRUE)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="5">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="19">
+                <TEXT><![CDATA[im input ist jetzt ein string enthalten]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="6">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="10">
+                <TEXT><![CDATA[escaped = 1?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="15">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="53">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="16">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="14">
+                <TEXT><![CDATA[wurde in der Funktion chooserloop "New File" ausgewählt?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="24">
+                <TEXT><![CDATA[path und input konkatinieren und in path speichern]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="30">
+                <TEXT><![CDATA[Datei im Pfad öffnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="36" ASSOCIATE="37">
+                <TEXT><![CDATA[zähle mit i von 0 bis 8]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="39" ASSOCIATE="41">
+                <TEXT><![CDATA[zähle mit j von 0 bis 8]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="11">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="43">
+                <TEXT><![CDATA[Schreibe alle Eigenschaften des gaameFields[i][j] in die Datei]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="12">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="41" ASSOCIATE="39">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="13">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="37" ASSOCIATE="36">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="14">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="47">
+                <TEXT><![CDATA[Schreibe passedTimeInSeconds in die Datei]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="15">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="56">
+                <TEXT><![CDATA[Schließe die Datei]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="6">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="20">
+                <TEXT><![CDATA[input = Benutzereingabe]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="7">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="23">
+                <TEXT><![CDATA[path und input konkatinieren und in path speichern]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="29">
+                <TEXT><![CDATA[Datei im Pfad path erstellen und öffnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="33">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="10" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="55" FROM="56" TO="53" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="13" FROM="10" TO="14" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="16" FROM="14" TO="20" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="18" FROM="14" TO="24" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="22" FROM="20" TO="23" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="26" FROM="23" TO="29" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="24" TO="30" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="35" FROM="33" TO="36" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="34" FROM="29" TO="33" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="32" FROM="30" TO="36" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="38" FROM="36" TO="39" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="42" FROM="41" TO="37" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="40" FROM="39" TO="43" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="44" FROM="43" TO="41" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="46" FROM="37" TO="47" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="54" FROM="53" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="11" FROM="10" TO="53" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="52" FROM="47" TO="56" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+      <DIAGRAM FORMAT="1.00" ID="1" NAME="chooserloop" CREATED="2018.05.20 14:28:16" MODIFIED="2018.05.20 15:37:54">
+        <LAYOUT FORMAT="1.00" COLUMNS="4" ROWS="19">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="86">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="16">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="72">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[chooserloop]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[Parameter:
+String matchName
+String path
+Boolean createNewFile]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Variablen deklarieren
+Integer chooserPosition, Listengröße
+Liste nameList
+Char c]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="4">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[getDirectoryList(nameList,path,createNewFile]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="5">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="105">
+                <TEXT><![CDATA[getDirectoryList erzeugt eine Liste von Namen von Dateien, die im Verzeichnis des Pfades path vorzufinden sind. Wenn createNewFile TRUE ist, dann wird die Liste um den String "New File" ergänzt]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="10">
+                <TEXT><![CDATA[generateChooserList(nameList,numberOfListMember,chooserPosition]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="101">
+                <TEXT><![CDATA[genereateChooserList generiert eine Konsolenausgabe der nameList und einen Cursor, der mit jedem Funktionsaufruf aktualisiert wird]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="12">
+                <TEXT><![CDATA[Ist 1 = 1? (Endlosschleife)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="16">
+                <TEXT><![CDATA[wurde eine Taste gedrückt?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="103">
+                <TEXT><![CDATA[c = Wert der Taste]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="12">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="24">
+                <TEXT><![CDATA[ist c eine Pfeitlaste?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="13">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="29">
+                <TEXT><![CDATA[ist c der Wert für die Entertaste?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="15">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="34">
+                <TEXT><![CDATA[ist c der Wert der escape-Taste?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="16">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="37">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="45">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="42">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="10">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="39">
+                <TEXT><![CDATA[generateChooserList(nameList,numberOfListMember,chooserPosition]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="11">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="102">
+                <TEXT><![CDATA[moveMenuPosition bewegt den Cursor im Menü in Abhängigkeit davon, welche Pfeiltaste gedrückt wurde]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="12">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="40">
+                <TEXT><![CDATA[movemenuPosition(chooserPosition, c, numberOfListMember)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="13">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="48">
+                <TEXT><![CDATA[matchName = nameList[chooserPosition]]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="14">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="49">
+                <TEXT><![CDATA[return 2]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="15">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="50">
+                <TEXT><![CDATA[return 1]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="17">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="98">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="18">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="14">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="89">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="15">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="91">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="17">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="96">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="10" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="13" FROM="10" TO="12" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="15" FROM="12" TO="16" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="46" FROM="42" TO="45" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="20" FROM="16" TO="103" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="43" FROM="39" TO="42" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="41" FROM="40" TO="39" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="26" FROM="24" TO="40" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="24" TO="29" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="31" FROM="29" TO="48" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="33" FROM="29" TO="34" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="36" FROM="34" TO="50" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="38" FROM="34" TO="37" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="44" FROM="16" TO="42" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="47" FROM="45" TO="12" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="51" FROM="48" TO="49" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="73" FROM="37" TO="72" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="75" FROM="72" TO="86" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="88" FROM="86" TO="12" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="90" FROM="49" TO="89" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="92" FROM="89" TO="91" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="93" FROM="50" TO="91" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="99" FROM="96" TO="98" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="95" FROM="91" TO="96" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="100" FROM="98" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="104" FROM="103" TO="24" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+      <DIAGRAM FORMAT="1.00" ID="4" NAME="Load" CREATED="2018.05.20 14:59:03" MODIFIED="2018.05.20 14:59:03">
+        <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="20">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="28">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="18">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="42">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[Load]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Parameter:
+String matchName
+Struct SudokuField gameField[9][9]
+String path
+Integer passedTimeInSeconds]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[Variablen deklarieren und initialisieren:
+Integer i,j,k,returnValue]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="4">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[genEmptySudoku(gameField)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="5">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="10">
+                <TEXT><![CDATA[genEmptySudoku initialisiert das Spielfeld komplett]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="11">
+                <TEXT><![CDATA[returnValue = chooserLoop(matchName,path,FALSE)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="13">
+                <TEXT><![CDATA[in matchName steht nun die Datei, die ausgewählt wurde]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="26">
+                <TEXT><![CDATA[ist returnValue = 1?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="14">
+                <TEXT><![CDATA[Konkatiniere path und matchName und speichere das Ergebniss in path]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="16">
+                <TEXT><![CDATA[öffne die Datei, die unter dem Pfad path zu finden ist]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="11">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="18" ASSOCIATE="20">
+                <TEXT><![CDATA[zähle mit i von 0 bis 8]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="12">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="47">
+                <TEXT><![CDATA[Die Eigenschaften des gameField[i][j] werden in der gleichen Reihenfolge (wie die beim Speichern) eingelesen.]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="13">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="49">
+                <TEXT><![CDATA[gameField[i][j].Selected = FALSE]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="14">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="22" ASSOCIATE="24">
+                <TEXT><![CDATA[zähle mit j von 0 bis 8]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="15">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="24" ASSOCIATE="22">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="16">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="20" ASSOCIATE="18">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="17">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="51">
+                <TEXT><![CDATA[Lese den rest der Datei, interpretiere ihn als Integer und speichere ihn in passedTimeInSeconds]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="18">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="44">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="19">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="11" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="12" FROM="11" TO="26" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="15" FROM="14" TO="16" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="17" FROM="16" TO="18" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="45" FROM="44" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="19" FROM="18" TO="47" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="25" FROM="24" TO="20" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="23" FROM="22" TO="24" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="27" FROM="26" TO="14" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="29" FROM="26" TO="28" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="31" FROM="28" TO="42" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="46" FROM="42" TO="44" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="48" FROM="47" TO="49" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="50" FROM="49" TO="22" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="21" FROM="20" TO="51" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="52" FROM="51" TO="44" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+    </DIAGRAMS>
+  </PROJECT>
+</FRAME>
