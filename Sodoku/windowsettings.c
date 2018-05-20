@@ -1,9 +1,21 @@
 #include <windows.h>
 #include "header.h"
 #include <stdio.h>
-// Sets the appropriate Console Window Settings
-//Quelle    https://forum.chip.de/discussion/1560510/console-size-veraendern
-//          https://docs.microsoft.com/en-us/windows/console/setconsolewindowinfo
+//This File include all function that are associated with the windowsettings
+
+/*
+Name:
+int consolewindowsettings()
+Parameters:
+None
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+Just sets the window settings of the console to a appropriate size
+Source:
+https://forum.chip.de/discussion/1560510/console-size-veraendern
+https://docs.microsoft.com/en-us/windows/console/setconsolewindowinfo
+*/
 int consolewindowsettings()
 {
 

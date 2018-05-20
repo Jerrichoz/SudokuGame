@@ -2,6 +2,8 @@
 #include "header.h"
 #include <stdio.h>
 #include <string.h>
+//This file includes all functions that are specially needed for saving a game.
+
 /*
 This function saves a current game in a File.
 The parameter "gameFields" is the current game.

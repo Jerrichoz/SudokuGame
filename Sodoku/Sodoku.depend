@@ -16,12 +16,14 @@
 
 1523316034 source:c:\users\jan\desktop\sodoku\function.c
 
-1523315710 source:c:\users\jan\desktop\sodoku\main.c
+1526832235 source:c:\users\jan\desktop\sodoku\main.c
 	<stdio.h>
+	<conio.h>
 	<stdlib.h>
 	"header.h"
+	<windows.h>
 
-1523314349 c:\users\jan\desktop\sodoku\header.h
+1526828528 c:\users\jan\desktop\sodoku\header.h
 
 1523357619 source:c:\users\teilnehmer.pc29\desktop\sodoku\function.c
 	<windows.h>
@@ -541,4 +543,150 @@
 	"header.h"
 	<stdio.h>
 	<string.h>
+
+1526817714 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1526818549 c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\header.h
+
+1526818561 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+	<time.h>
+
+1526817714 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+	<dirent.h>
+
+1526817714 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\instructions.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1526817714 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\loadgame.c
+	"header.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1526817714 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1526818966 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1526818582 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\randomgamegenerator.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+	<time.h>
+
+1526819018 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\randomgamemenu.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1526817714 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\savegame.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<string.h>
+
+1526562065 source:c:\users\maksi\desktop\programmier-projekt\sudokugame-janbranch\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1526828528 source:c:\users\jan\desktop\sodoku\colour.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1526832030 source:c:\users\jan\desktop\sodoku\cursormovement.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+	<time.h>
+
+1526832045 source:c:\users\jan\desktop\sodoku\filechooser.c
+	"header.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+	<dirent.h>
+
+1526832096 source:c:\users\jan\desktop\sodoku\instructions.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1526832207 source:c:\users\jan\desktop\sodoku\loadgame.c
+	"header.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1526832271 source:c:\users\jan\desktop\sodoku\mainmenu.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<conio.h>
+
+1526834553 source:c:\users\jan\desktop\sodoku\randomgamegenerator.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+	<time.h>
+
+1526832447 source:c:\users\jan\desktop\sodoku\randomgamemenu.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	"header.h"
+	<windows.h>
+
+1526832362 source:c:\users\jan\desktop\sodoku\savegame.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+	<string.h>
+
+1526832403 source:c:\users\jan\desktop\sodoku\windowsettings.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
+
+1526831855 source:c:\users\jan\desktop\sodoku\color.c
+	<windows.h>
+	"header.h"
+	<stdio.h>
 

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+//This file includes all functions that are specially needed for loading a game.
 /*
 This function loads a Sudoku-game from a File. The game can be a new game or a saved game.
 The parameter "matchName" is used as a return value. It indicates the name of the chosen file, that the game is based on.
@@ -23,6 +24,10 @@ int loadGameFromFile(char matchName[512], SF gameField[9][9],char path[1024],int
     //the chooserLoop indicates the returnValue. The retunrValue could be CURSORLOOP or MAINMENU (both are constants (numbers))
     //File, that should be read from will be chosen
     returnValue = chooserLoop(matchName,path,0);
+    if(returnValue == MAINMENU)
+    {
+        return MAINMENU;
+    }
     strcat(path,matchName);
     savegameFile = fopen(path,"r");
 

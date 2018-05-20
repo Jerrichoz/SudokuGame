@@ -3,7 +3,12 @@
 #include <stdlib.h>
 #include "header.h"
 #include <windows.h>
+//In this File are all Funtions, that display instructions and the Time/matchname of the current game.
 
+/*
+This function prints the instructions for the current situation as a footer.
+The parameter footer indicates the current status of the Program. The statuses are explained in the Header.h.
+*/
 int printInstructions(int footer)
 {
     switch(footer)
@@ -11,6 +16,7 @@ int printInstructions(int footer)
     case(GAME):
         moveInstructionGame();
         gameInstruction();
+        escInstruction();
         break;
     case(MNMENU):
         moveInstructionMenu();
@@ -35,7 +41,7 @@ int printInstructions(int footer)
     }
     return 0;
 }
-
+//This function prints the footer for menus
 int moveInstructionMenu()
 {
     printf("\nINSTRUCTIONS\n");
@@ -47,7 +53,7 @@ int moveInstructionMenu()
     setColor(WHITE);
     return 0;
 }
-
+//This function prints the instructions for the cursor
 int moveInstructionGame()
 {
     printf("\nINSTRUCTIONS\n");
@@ -56,7 +62,7 @@ int moveInstructionGame()
     printf("UPARROW for UP, DOWNARROW for DOWN, LEFTARROW for LEFT and RIGHTARROW for RIGHT\n\n");
     return 0;
 }
-
+//This function prints the key-instructions for the cursorloop
 int gameInstruction()
 {
     printf("NUMBERS:\n");
@@ -77,24 +83,31 @@ int gameInstruction()
     setColor(WHITE);
     return 0;
 }
-
+//This function prints the instruction how to return to the menu
 int escInstruction()
 {
     printf("\nPress ESC to return to the Main Menu!\n");
     return 0;
 }
 
+/*
+This function prints the Name of the File, which the game is based on or Random if it is generated.
+This function prints the Time that the user spend with the current game.
+*/
 int printNameAndTime(char matchName[512],int passedTimeInSeconds)
 {
     int hours,minutes,seconds;
-    printf("%i",passedTimeInSeconds);//431Seconds 424 Secodns angezeigt
-
+    //define passed seconds
     seconds = passedTimeInSeconds%60;
     passedTimeInSeconds = passedTimeInSeconds - seconds;
+    //one Minute has 60 seconds
     passedTimeInSeconds = passedTimeInSeconds/60;
+    //define passed minutes
     minutes = passedTimeInSeconds%60;
     passedTimeInSeconds = passedTimeInSeconds - minutes;
+    //one hour has 60 minutes
     passedTimeInSeconds = passedTimeInSeconds/60;
+    //define hours
     hours = passedTimeInSeconds;
     printf("%s - TIME:   %i:%i:%i\n",matchName,hours,minutes,seconds);
     return 0;

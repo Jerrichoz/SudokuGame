@@ -3,24 +3,23 @@
 #include <stdlib.h>
 #include "header.h"
 #include <windows.h>
-
-// need to implement exit from the random menu
+//This function includes all Files that are needed to display and use the Menu for the random game generator.
 
 /*
 Name:
 int randomGameLoop(SF GameFields[9][9], int *difficulty)
 Parameters:
-The Gamefield-Struct.
 The difficulty level of the random Game as an integer pointer, so the value can be passed on.
 Return Value:
-
+The return value decides whether a random game is started, or returned to the main menu.
 Function:
-Calls all the function needed to generate the sodoku-field:
-Generates an empty Sodoku field with the right properties.
-A random array which will be needed in the first 3 diagonal blocks,
-that can be filled without using backtracking, because they are independent.
-After that the solver generates the rest of the numbers with the backtracking method.
-Before setting the editability, the numbers according to the difficulty are removed.
+At first a function is called, responsible for the generation of the menu graphics.
+A menu loop for the random game.
+Like the other menu loops, this reacts as well to the UP and DOWN Arrow Keys.
+And changes the color of the option selected.
+The first switch case reacts to which button was entered and if
+Enter is entered the next switch case decides which value of the
+difficulty pointer will be returned, depending on the difficulty level.
 */
 int randomGameLoop(int *difficulty)
 {
@@ -30,11 +29,11 @@ int randomGameLoop(int *difficulty)
     int boolexit = 0;
     while(boolexit != 1)
     {
-
-
-        if(kbhit()) // Nur wenn auch eine Taste gedrückt ist
+        // Only if a key is hit
+        if(kbhit())
         {
-            char c = getch(); // Muss auf keine Eingabe warten, Taste ist bereits gedrückt
+            // get Value for the key, that has been hit
+            char c = getch();
             switch(c)
             {
             //Movement
@@ -62,7 +61,7 @@ int randomGameLoop(int *difficulty)
                     return RNDGAME;
                     break;
                 }
-            //Exit Game
+            //Exit to the Main Menu
             case(27):
                 return MAINMENU;
                 break;
@@ -74,6 +73,18 @@ int randomGameLoop(int *difficulty)
     return 0;
 }
 
+/*
+Name:
+int generateRandomGameMenu(int position)
+Parameters:
+The position parameter tells on which graphic the cursor is right now, by changing the color of that graphic.
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+Clears the screen.
+Calls all the graphic function needed for that menu
+and the printInstructions function as well.
+*/
 int generateRandomGameMenu(int position)
 {
     system("cls");
@@ -84,6 +95,18 @@ int generateRandomGameMenu(int position)
     printInstructions(MENU);
     return 0;
 }
+
+/*
+Name:
+int menuRndGraphic()
+Parameters:
+None, because this graphic can't be selected.
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+A bunch of printf's for the graphic
+and if selected the color is red.
+*/
 int menuRndGraphic()
 {
     int tempcolor;
@@ -99,6 +122,17 @@ int menuRndGraphic()
     return 0;
 }
 
+/*
+Name:
+int easyRndGraphic(int selected)
+Parameters:
+Selected parameter marks this graphic as red when this option is selected.
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+A bunch of printf's for the graphic
+and if selected the color is red.
+*/
 int easyRndGraphic(int selected)
 {
     int tempcolor;
@@ -115,9 +149,20 @@ int easyRndGraphic(int selected)
     printf("\t                 sss   yyyyy \n");
     printf("\n\n");
     setColor(tempcolor);
-    return 1;
+    return 0;
 }
 
+/*
+Name:
+int mediumRndGraphic(int selected)
+Parameters:
+Selected parameter marks this graphic as red when this option is selected.
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+A bunch of printf's for the graphic
+and if selected the color is red.
+*/
 int mediumRndGraphic(int selected)
 {
     int tempcolor;
@@ -133,9 +178,20 @@ int mediumRndGraphic(int selected)
     printf("\tMM    MM  eeeee  dddddd iii  uuuu u mmm  mm  mm\n");
     printf("\n\n");
     setColor(tempcolor);
-    return 1;
+    return 0;
 }
 
+/*
+Name:
+int hardRndGraphic(int selected)
+Parameters:
+Selected parameter marks this graphic as red when this option is selected.
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+A bunch of printf's for the graphic
+and if selected the color is red.
+*/
 int hardRndGraphic(int selected)
 {
     int tempcolor;
@@ -151,6 +207,6 @@ int hardRndGraphic(int selected)
     printf("\tHH   HH  aaa aa rr      dddddd\n");
     printf("\n\n");
     setColor(tempcolor);
-    return 1;
+    return 0;
 
 }

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <dirent.h>
+//In this file are all functions that are associated with choosing a File or displaying it for the User.
 
 /*
 The function displays a chooserlist in the menu.

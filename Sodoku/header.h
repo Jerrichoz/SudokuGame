@@ -1,9 +1,14 @@
 /*
 A SudokuField is a struct, which represents a Sudoku Field.
 A SudokuField has a Number and several properties:
+    Number - indicates the Number that is displayed
     Editable - shows, if the field is editable (1=True 0=False)
     Color - represents the color as an Integer.
-    The function SetConsoleTextAttribute from <windows.h> defines which number belongs to the color.
+    Selected - indicates if the field is selected (1=True 0=False)
+    Block - indicates to which of the 9 3x3 Blocks the field belongs
+    Error - is either 1 or 0. It is implemented for debugging.
+    Hint - Hint is the correct number of the field for the current game
+    Backup - Backup is a buffer-property.
 If The Number is 0, then the Field is treated as Empty
 */
 //The struct is defined as SF
@@ -68,6 +73,7 @@ int hardRndGraphic(int selected);
 
 // // randomgameGenerator.c -Start
 int rndarray[9][3];
+int hintSolver(SF NewMatchField[9][9]);
 int randomGameGen(SF newGameField[9][9], int difficulty);
 int sodokuSolver(SF newGameField[9][9]);
 int findUnassigned(SF newGameField[9][9], int *row, int *column);

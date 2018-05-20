@@ -4,6 +4,7 @@
 #include "header.h"
 #include <windows.h>
 #include <time.h>
+//This File includes all functions that are used to generate a random sudokugame.
 
 /*
 Name:
@@ -20,20 +21,55 @@ that can be filled without using backtracking, because they are independent.
 After that the solver generates the rest of the numbers with the backtracking method.
 Before setting the editability, the numbers according to the difficulty are removed.
 */
-int randomGameGen(SF newGameField[9][9], int difficulty)
+int randomGameGen(SF NewMatchField[9][9], int difficulty)
 {
     generateRandomArray();
-    genEmptySodoku(newGameField);
-    genThreeIndependentBlocks(newGameField);
-    sodokuSolver(newGameField);
-    numberRemover(newGameField, difficulty);
-    setSodokuEditabilty(newGameField);
+    genEmptySodoku(NewMatchField);
+    genThreeIndependentBlocks(NewMatchField);
+    sodokuSolver(NewMatchField);
+    numberRemover(NewMatchField, difficulty);
+    setSodokuEditabilty(NewMatchField);
     return CURSORLOOP;
 }
 
 /*
 Name:
-int sodokuSolver(SF newGameField[9][9])
+int hintSolver(SF NewMatchField[9][9])
+Parameters:
+The Gamefield-Struct
+Return Value:
+Zero returns a 0 for zero problems, no further use.
+Function:
+First doubleloop saves all numbers in the backup property of the struct.
+After that the sodoku is solved completely.
+Second doubleloop saves all numbers in the hint property
+and restores through the backup property the sodoku as it was before.
+*/
+int hintSolver(SF NewMatchField[9][9])
+{
+    int i,j;
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            NewMatchField[i][j].Backup = NewMatchField[i][j].Number;
+        }
+    }
+    sodokuSolver(NewMatchField);
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            NewMatchField[i][j].Hint = NewMatchField[i][j].Number;
+            NewMatchField[i][j].Number = NewMatchField[i][j].Backup;
+        }
+    }
+    return 0;
+}
+
+/*
+Name:
+int sodokuSolver(SF NewMatchField[9][9])
 Parameters:
 The Gamefield-Struct
 Return Value:
@@ -55,7 +91,8 @@ After the number is getting reset and the backtrack starts, reseting all the sel
 Source:
 https://www.geeksforgeeks.org/backtracking-set-7-suduku/
 */
-int sodokuSolver(SF newGameField[9][9])
+
+int sodokuSolver(SF NewMatchField[9][9])
 {
     // //Variables
     //row, column and number are initiliazed
@@ -63,9 +100,9 @@ int sodokuSolver(SF newGameField[9][9])
     int column = 0;
     int num = 1;
 
-    //if no unassigned number exists, the puzzle is solved
+    //if no unassigned number exists, the puzzle is solvedZero returns a 0 for zero problems, no further use.
     //row and column are given as a pointerparameters, so they can be used later
-    if(!findUnassigned(newGameField, &row, &column))
+    if(!findUnassigned(NewMatchField, &row, &column))
     {
         //Success
         return 1;
@@ -73,18 +110,19 @@ int sodokuSolver(SF newGameField[9][9])
     for(num = 1; num <=  9; num++)
     {
         //if number is valid continue
-        if(checkRowsAndColumnsAndBlock(newGameField, num, row, column, newGameField[row][column].Block))
+        if(checkRowsAndColumnsAndBlock(NewMatchField, num, row, column, NewMatchField[row][column].Block))
         {
             //So far no problems, save the number
-            newGameField[row][column].Number = num;
+            NewMatchField[row][column].Number = num;
 
-            if(sodokuSolver(newGameField))
+            if(sodokuSolver(NewMatchField))
             {
                 //Success
                 return 1;
             }
             //If a problem occurs
-            newGameField[row][column].Number = 0;
+            NewMatchField[row][column].Number = 0;
+
         }
     }
     //Backtrack!
@@ -93,7 +131,7 @@ int sodokuSolver(SF newGameField[9][9])
 
 /*
 Name:
-int genEmptySodoku(SF newGameField[9][9])
+int genEmptySodoku(SF NewMatchField[9][9])
 Parameters:
 The Gamefield-Struct
 Return Value:
@@ -102,7 +140,7 @@ Function:
 Straight forward, going through the whole struct with 2 for-loops.
 Setting all properties that are needed.
 */
-int genEmptySodoku(SF newGameField[9][9])
+int genEmptySodoku(SF NewMatchField[9][9])
 {
     // //Variables
     //i,j loopvars
@@ -112,12 +150,13 @@ int genEmptySodoku(SF newGameField[9][9])
     {
         for(j=0; j<9; j++)
         {
-            newGameField[i][j].Block = setBlockForField(i,j);
-            newGameField[i][j].Number = 0;
-            newGameField[i][j].Editable = 1;
-            newGameField[i][j].Error = 0;
-            newGameField[i][j].Selected = 0;
-            newGameField[i][j].Hint = 0;
+            NewMatchField[i][j].Block = SetBlockForField(i,j);
+            NewMatchField[i][j].Number = 0;
+            NewMatchField[i][j].Editable = 1;
+            NewMatchField[i][j].Error = 0;
+            NewMatchField[i][j].Selected = 0;
+            NewMatchField[i][j].Hint = 0;
+            NewMatchField[i][j].Backup = 0;
         }
     }
     return 0;
@@ -134,7 +173,7 @@ Function:
 Just a double for-loop for setting the editability of all non-zeros to 0
 and to 1 if the number is a 0.
 */
-int setSodokuEditabilty(SF newGameField[9][9])
+int setSodokuEditabilty(SF NewMatchField[9][9])
 {
     // //Variables
     //just 2 variables for the loops to go through every number in the struct
@@ -144,13 +183,13 @@ int setSodokuEditabilty(SF newGameField[9][9])
     {
         for(j=0; j<9; j++)
         {
-            if(newGameField[i][j].Number != 0)
+            if(NewMatchField[i][j].Number != 0)
             {
-                newGameField[i][j].Editable = 0;
+                NewMatchField[i][j].Editable = 0;
             }
             else
             {
-                newGameField[i][j].Editable = 1;
+                NewMatchField[i][j].Editable = 1;
             }
         }
     }
@@ -159,7 +198,7 @@ int setSodokuEditabilty(SF newGameField[9][9])
 
 /*
 Name:
-int genThreeIndependentBlocks(SF newGameField[9][9])
+int genThreeIndependentBlocks(SF NewMatchField[9][9])
 Parameters:
 The Gamefield-Struct
 Return Value:
@@ -170,7 +209,7 @@ If it's one of the diagonal blocks, one the random arrays is inserted.
 TL;DR:
 Generates 3 independent blocks. A smarter solution to start the solver.
 */
-int genThreeIndependentBlocks(SF newGameField[9][9])
+int genThreeIndependentBlocks(SF NewMatchField[9][9])
 {
     // //Variables
     //i and j standard loopvars for going through the whole struct
@@ -184,19 +223,19 @@ int genThreeIndependentBlocks(SF newGameField[9][9])
     {
         for(j=0; j<9; j++)
         {
-            if(newGameField[i][j].Block == 1)
+            if(NewMatchField[i][j].Block == 1)
             {
-                newGameField[i][j].Number = rndarray[k][0];
+                NewMatchField[i][j].Number = rndarray[k][0];
                 k++;
             }
-            else if(newGameField[i][j].Block == 5)
+            else if(NewMatchField[i][j].Block == 5)
             {
-                newGameField[i][j].Number = rndarray[l][1];
+                NewMatchField[i][j].Number = rndarray[l][1];
                 l++;
             }
-            else if(newGameField[i][j].Block == 9)
+            else if(NewMatchField[i][j].Block == 9)
             {
-                newGameField[i][j].Number = rndarray[m][2];
+                NewMatchField[i][j].Number = rndarray[m][2];
                 m++;
             }
         }
@@ -206,7 +245,7 @@ int genThreeIndependentBlocks(SF newGameField[9][9])
 
 /*
 Name:
-int findUnassigned(SF newGameField[9][9], int *row, int *column)
+int findUnassigned(SF NewMatchField[9][9], int *row, int *column)
 Parameters:
 The Gamefield-Struct.
 Row and column as pointers, so they can be value of the vars can be used afterwards.
@@ -218,13 +257,13 @@ Function:
 Just a double for-loop for going through every number in the struct.
 If the number is a zero, function stops and the location of the number is returned.
 */
-int findUnassigned(SF newGameField[9][9], int *row, int *column)
+int findUnassigned(SF NewMatchField[9][9], int *row, int *column)
 {
     for(*row = 0; *row<9; *row+= 1)
     {
         for(*column = 0; *column<9; *column+= 1)
         {
-            if(newGameField[*row][*column].Number == 0)
+            if(NewMatchField[*row][*column].Number == 0)
             {
                 return 1;
             }
@@ -235,7 +274,7 @@ int findUnassigned(SF newGameField[9][9], int *row, int *column)
 
 /*
 Name:
-int checkRowsAndColumnsAndBlock(SF newGameField[9][9],int testnumber, int row, int column, int block)
+int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block)
 Parameters:
 The Gamefield-Struct.
 The testnumber, which is going to be tested on validity
@@ -253,7 +292,7 @@ At last, the block, which the number is in, is checked.
 If the number with the same value, already exists, function stops and returns a 0.
 If function is completed without being returned with a 0, the number is valid.
 */
-int checkRowsAndColumnsAndBlock(SF newGameField[9][9],int testnumber, int row, int column, int block)
+int checkRowsAndColumnsAndBlock(SF NewMatchField[9][9],int testnumber, int row, int column, int block)
 {
     // //Variables
     //Standard loopvars
@@ -263,7 +302,7 @@ int checkRowsAndColumnsAndBlock(SF newGameField[9][9],int testnumber, int row, i
     for(i=0; i<9; i++)
     {
 
-        if(testnumber == newGameField[i][column].Number)
+        if(testnumber == NewMatchField[i][column].Number)
         {
             //testnumber is already in a column
             return 0;
@@ -272,7 +311,7 @@ int checkRowsAndColumnsAndBlock(SF newGameField[9][9],int testnumber, int row, i
     //Secondly, rows are checked
     for(j=0; j<9; j++)
     {
-        if(testnumber == newGameField[row][j].Number)
+        if(testnumber == NewMatchField[row][j].Number)
         {
             //testnumber is already in a row
             return 0;
@@ -283,10 +322,10 @@ int checkRowsAndColumnsAndBlock(SF newGameField[9][9],int testnumber, int row, i
     {
         for(l=0; l<9; l++)
         {
-            if(block == newGameField[k][l].Block)
+            if(block == NewMatchField[k][l].Block)
             {
 
-                if(testnumber == newGameField[k][l].Number)
+                if(testnumber == NewMatchField[k][l].Number)
                 {
                     //Number in this block already
                     return 0;
@@ -359,37 +398,34 @@ int generateRandomArray()
 
 /*
 Name:
-int numberRemover(SF newGameField[9][9], int difficulty)
+int numberRemover(SF NewMatchField[9][9], int difficulty)
 Parameters:
 The Gamefield-Struct, the difficulty level of the random Game as an int.
 Return Value:
 Zero returns a 0 for zero problems, no further use.
 Function:
 Pretty simple, a random row and column is choosen.
-If the number there isn't 0 already, it is saved in the hint property(for later hint use).
-Afterwards set to 0 and the difficulty is decreased by 1.
-So difficulty defines the amount of numbers which are removed.
-Creating a more difficult Sodoku, with a higher difficulty integer value.
-Lottozahlen-Projekt(in Moodle)
+Afterwards the number is set to 0 and the difficulty is decreased by 1.
+So the difficulty-parameter defines the amount of numbers which are removed.
+Creating a more difficult Sodoku, with a higher integer value.
 */
-int numberRemover(SF newGameField[9][9], int difficulty)
+int numberRemover(SF NewMatchField[9][9], int difficulty)
 {
     // //Variables
     //row and column as integers
-    int rowNumber;
-    int columnNumber;
+    int rownumber;
+    int columnnumber;
     //the seed for random generator
     srand(time(NULL));
 
     do
     {
 
-        rowNumber = rand()%9;
-        columnNumber = rand()%9;
-        if(newGameField[rowNumber][columnNumber].Number != 0)
+        rownumber = rand()%9;
+        columnnumber = rand()%9;
+        if(NewMatchField[rownumber][columnnumber].Number != 0)
         {
-            newGameField[rowNumber][columnNumber].Hint = newGameField[rowNumber][columnNumber].Number;
-            newGameField[rowNumber][columnNumber].Number = 0;
+            NewMatchField[rownumber][columnnumber].Number = 0;
             difficulty--;
         }
 
@@ -402,7 +438,7 @@ int numberRemover(SF newGameField[9][9], int difficulty)
 
 /*
 Name:
-int checkIfSolved(SF gameFields[9][9])
+int checkIfSolved(SF GameFields[9][9])
 Parameters:
 The Gamefield-Struct.
 Return Value:
@@ -418,7 +454,7 @@ Each row/column adds the whole row/column up and if the result isn't equal to th
 the functions stops and a NOTSOLVED is returned.
 Blocks are basically the same. Just one additional loop, that goes through every existing block.
 */
-int checkIfSolved(SF gameFields[9][9])
+int checkIfSolved(SF GameFields[9][9])
 {
     //Variables
     //Loopvarsa
@@ -427,12 +463,14 @@ int checkIfSolved(SF gameFields[9][9])
     int checksum = 1+2+3+4+5+6+7+8+9;
     int blocknumber, sum;
 
+
     //Columns
     for(i=0; i<9; i++)
     {
         for(j=0; j<9; j++)
         {
-            sum += gameFields[i][j].Number;
+
+            sum += GameFields[i][j].Number;
             if(j == 8)
             {
                 if(sum != checksum)
@@ -451,7 +489,7 @@ int checkIfSolved(SF gameFields[9][9])
     {
         for(j=0; j<9; j++)
         {
-            sum += gameFields[j][i].Number;
+            sum += GameFields[j][i].Number;
             if(j == 8)
             {
                 if(sum != checksum)
@@ -472,9 +510,9 @@ int checkIfSolved(SF gameFields[9][9])
         {
             for(j=0; j<9; j++)
             {
-                if(gameFields[i][j].Block == blocknumber)
+                if(GameFields[i][j].Block == blocknumber)
                 {
-                    sum += gameFields[i][j].Number;
+                    sum += GameFields[i][j].Number;
 
                 }
             }
@@ -496,7 +534,7 @@ int checkIfSolved(SF gameFields[9][9])
     return SOLVED;
 }
 
-int setBlockForField(int xCoordinate, int yCoordinate)
+int SetBlockForField(int xCoordinate, int yCoordinate)
 {
     //First three columns (zero to three)
     if((xCoordinate >= 0) && (xCoordinate <= 2))

@@ -3,36 +3,43 @@
 #include <stdio.h>
 #include <conio.h>
 #include <time.h>
+//In this File are all functions that are associated with the Status/Loop CURSORLOOP. It includes displaying the game and interacting with the user
 
-
+/*
+The cursorloop is the actual game. It displays the game fields with instructions and a interactive cursor.
+The cursorloop interacts with the User.
+The parameter gameFields is the current game, which is load from a File or generated with the Random-generator.
+The parameter matchName indicates the Name of the File, that the game is based on, or Random if it was generated.
+The parameter passedTimeInSeconds indicates the Time that the user spend in this game.
+*/
 int cursorloop(SF gameFields[9][9],char matchName[512],int *passedTimeInSeconds)
 {
     time_t startTime;
     time_t endTime;
+    //save the startTime
 	time(&startTime);
-	startTime = startTime - *passedTimeInSeconds;
+	//substract the Time, that the User spend
 
-    int instructionmenu = GAME;
-    // //Arraycoordinates to navigate
+    int instructionmenu = GAME;//This variable indicates which instructions should be printed
     //setting the current position
     int arrayx = 4;
     int arrayy = 4;
-    gameFields[arrayx][arrayy].Selected = 1;
+
 
     //Variables for saving the last position
     int oldarrayx = 4;
     int oldarrayy = 4;
 
     int row,column;
-// First Generation of Field
+    // First Generation of Field
+    gameFields[arrayx][arrayy].Selected = 1;
+    startTime = startTime - *passedTimeInSeconds;
     generateField(gameFields, instructionmenu,*passedTimeInSeconds,matchName);
 
-    //Quelle für Cursor https://www.computerbase.de/forum/showthread.php?t=202425
-    //                  https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
-
-    //Loopexitvariable
-    int boolexit = 0;
-    while(boolexit != 1)
+    //Sources for Cursor
+    //https://www.computerbase.de/forum/showthread.php?t=202425[20.05.2018]
+    //https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions[20.05.2018]
+    while(1)
     {
         instructionmenu = GAME;
         // Nur wenn auch eine Taste gedrückt ist
@@ -90,20 +97,13 @@ int cursorloop(SF gameFields[9][9],char matchName[512],int *passedTimeInSeconds)
                 saveGame(gameFields,(endTime - startTime));
                 break;
             }
-
             //Set as Selected
             gameFields[arrayx][arrayy].Selected = 1;
-
             //Generate the field
             time(&endTime);
             generateField(gameFields, instructionmenu,(endTime - startTime),matchName);
-
-
-
         }
-
     }
-    return 0;
 }
 /*
 Moves in the array through keypads (Uparrow, Downarrow, Leftarrow, Rightarrow)
@@ -115,6 +115,7 @@ int movearrow(int *x, int *y, int direction)
     //Uparrow
     case(72):
         *y -= 1;
+        //if the cursor is at the bottom border, it jumps to the top
         if(*y == -1)
         {
             *y = 8;
@@ -150,8 +151,10 @@ int movearrow(int *x, int *y, int direction)
 }
 /*
 The Function displays the matchfield of the Current Game.
-The Parameter is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
-COMMENT NEED MAX
+The Parameter gameFields is a 2-dimensional Array of SodokuFields, which is the Base of the Current Game.
+The parameter instruction indicates the instructions, that should be displayed.
+The parameter passedTimeInSeconds indicates the total Time that has passed.
+The parameter matchName indicates the Name of the File, that the game is based on, or Random if it was generated.
 */
 int generateField(SF gameFields[9][9], int instruction, int passedTimeInSeconds, char matchName[512])
 {
@@ -173,8 +176,8 @@ int generateField(SF gameFields[9][9], int instruction, int passedTimeInSeconds,
         {
 
             //Setting the Color
-            //The cursor is marked as RED and YELLOW on a not-editable number it is
-            //the other editable numbers are marked as GREEN and non-editable as WHITE
+            //The cursor is marked as RED and GREEN on a not-editable number it is
+            //the other editable numbers are marked as CYAN and non-editable as WHITE
             if(gameFields[j][i].Selected == 1 && gameFields[j][i].Editable == 1)
             {
                 gameFields[j][i].Color = RED;
@@ -215,13 +218,16 @@ int generateField(SF gameFields[9][9], int instruction, int passedTimeInSeconds,
     //Lower Border
     BORDER;
 
+	//Hint validation after every generation
+    hintSolver(gameFields);
+
     //Print Instructions
     printInstructions(instruction);
     printNameAndTime(matchName,passedTimeInSeconds);
     return 0;
 }
 /*
-Gots called in cursorloop and basiclly set the number in the field, which is currently selected.
+sets the number in the field, which is currently selected.
 Necessary parameters, is the matchfield array struct, the number to set in and the coordinates to set it in.
 */
 int setNumber(SF gameFields[9][9],int number, int x, int y)
